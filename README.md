@@ -25,7 +25,7 @@ A simple dictionary web application with autocomplete and spell-checking feature
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/dictionary-app.git
+    git clone https://github.com/thebooleanguy/dictionary-app.git
     cd dictionary-app
     ```
 
