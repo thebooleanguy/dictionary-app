@@ -1,3 +1,5 @@
+// The Main class for the Spring Boot Application
+
 package com.thebooleanguy.dictionary;
 
 import org.springframework.boot.SpringApplication;
