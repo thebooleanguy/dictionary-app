@@ -1,6 +1,6 @@
 // Parses a dictionary file where each line has the format 'word|partOfSpeech|definition'
 
-package com.thebooleanguy.dictionary.service;
+package com.thebooleanguy.dictionary.util;
 
 import com.thebooleanguy.dictionary.model.WordInfo;
 import org.springframework.core.io.ClassPathResource;
