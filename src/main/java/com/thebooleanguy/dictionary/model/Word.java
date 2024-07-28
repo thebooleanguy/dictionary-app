@@ -1,4 +1,4 @@
-// A model class representing a word with its part of speech and definition.
+// Holds the word, part of speech, definition and an example sentence.
 
 package com.thebooleanguy.dictionary.model;
 

@@ -1,4 +1,4 @@
-// A utility class for Parsing a dictionary file where each line has the format 'word|partOfSpeech|definition'
+// Parses a dictionary file where each line has the format 'word|partOfSpeech|definition|example'
 
 package com.thebooleanguy.dictionary.util;
 
