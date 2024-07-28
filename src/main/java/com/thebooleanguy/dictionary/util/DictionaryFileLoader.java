@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class DictionaryLoader {
+public class DictionaryFileLoader {
 
     public List<Word> loadDictionary() throws IOException {
         List<Word> dictionary = new ArrayList<>();
