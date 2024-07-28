@@ -1,0 +1,61 @@
+apple | noun | A round fruit with red or green skin and a whitish interior.
+run | verb | Move at a speed faster than a walk.
+book | noun | A set of written or printed pages, usually bound with a protective cover.
+swim | verb | Move through water by moving your body or limbs.
+house | noun | A building for human habitation.
+write | verb | Compose text.
+car | noun | A road vehicle, typically with four wheels, powered by an internal combustion engine.
+jump | verb | Push oneself off a surface and into the air.
+computer | noun | An electronic device for storing and processing data.
+eat | verb | Put food into the mouth, chew, and swallow it.
+chair | noun | A piece of furniture for sitting.
+sing | verb | Make musical sounds with the voice.
+dog | noun | A domesticated carnivorous mammal.
+dance | verb | Move rhythmically to music.
+pen | noun | An instrument for writing or drawing with ink.
+fly | verb | Move through the air using wings.
+tree | noun | A perennial plant with a trunk and branches.
+paint | verb | Apply color to a surface using a brush or other tool.
+river | noun | A large, flowing body of water.
+read | verb | Look at and comprehend the meaning of written or printed matter.
+television | noun | A device for receiving television signals and reproducing them on a screen.
+drive | verb | Operate and control the direction and speed of a vehicle.
+school | noun | An institution for educating children.
+cook | verb | Prepare food by heating it.
+phone | noun | A device used for voice communication over long distances.
+jump | verb | Push oneself off the ground and into the air.
+sun | noun | The star at the center of the solar system.
+laugh | verb | Make spontaneous sounds of amusement.
+shirt | noun | A garment for the upper body.
+train | verb | Teach or develop skills through practice.
+moon | noun | The natural satellite of Earth.
+sleep | verb | Rest by lying down and becoming unconscious.
+umbrella | noun | A device used for protection against rain or sun.
+skate | verb | Glide over a surface on skates or a skateboard.
+garden | noun | An area of ground where plants are grown.
+climb | verb | Ascend or go up something.
+camera | noun | A device for capturing photographs or videos.
+swim | verb | Move through water by moving the body or limbs.
+phone | noun | A device used for telecommunication.
+glove | noun | A covering for the hand with separate sections for each finger.
+soccer | noun | A team sport played with a round ball on a field.
+write | verb | Produce text by marking paper or another surface.
+bicycle | noun | A vehicle with two wheels that is powered by pedaling.
+paint | verb | Apply a color or pigment to a surface.
+lamp | noun | A device that produces light.
+bread | noun | A staple food made from flour and water.
+carpet | noun | A woven or felted fabric used as a floor covering.
+computer | noun | A device for processing and storing data.
+television | noun | A device for viewing broadcasted programs.
+school | noun | An institution for educational instruction.
+laptop | noun | A portable computer with a screen and keyboard.
+dish | noun | A shallow container used for serving or cooking food.
+airplane | noun | A powered flying vehicle with wings.
+jacket | noun | A piece of clothing for the upper body.
+guitar | noun | A stringed musical instrument.
+soccer | noun | A team sport played on a field with a spherical ball.
+train | noun | A series of connected vehicles traveling on railways.
+keyboard | noun | A device for typing on a computer.
+cat | noun | A small domesticated carnivorous mammal.
+house | noun | A building for people to live in.
+television | noun | An electronic device for viewing broadcasted content.
