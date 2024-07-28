@@ -1,16 +1,16 @@
-// Holds the word, part of speech, and definition.
-
 package com.thebooleanguy.dictionary.model;
 
 public class Word {
     private String word;
     private String partOfSpeech;
     private String definition;
+    private String sentence; // New field for the sentence
 
-    public Word(String word, String partOfSpeech, String definition) {
+    public Word(String word, String partOfSpeech, String definition, String sentence) {
         this.word = word;
         this.partOfSpeech = partOfSpeech;
         this.definition = definition;
+        this.sentence = sentence;
     }
 
     public String getWord() {
@@ -25,9 +25,13 @@ public class Word {
         return definition;
     }
 
+    public String getSentence() {
+        return sentence;
+    }
+
     @Override
-    // Concatenates these 3 strings and return as one
+    // Concatenate the 4 Strings into one
     public String toString() {
-        return word + " (" + partOfSpeech + "): " + definition;
+        return word + " (" + partOfSpeech + "): " + definition + " Example: " + sentence;
     }
 }
