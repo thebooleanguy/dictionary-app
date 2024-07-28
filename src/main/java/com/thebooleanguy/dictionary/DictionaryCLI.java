@@ -52,7 +52,7 @@ public class DictionaryCLI {
 
     public void start() {
         while (true) {
-                    searchPrefix();
+            searchPrefix();
         }
     }
 

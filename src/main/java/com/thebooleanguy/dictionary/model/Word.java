@@ -4,7 +4,7 @@ public class Word {
     private String word;
     private String partOfSpeech;
     private String definition;
-    private String sentence; // New field for the sentence
+    private String sentence;
 
     public Word(String word, String partOfSpeech, String definition, String sentence) {
         this.word = word;
