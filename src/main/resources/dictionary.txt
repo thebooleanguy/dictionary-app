@@ -1,61 +1,69 @@
-apple | noun | A round fruit with red or green skin and a whitish interior.
-run | verb | Move at a speed faster than a walk.
-book | noun | A set of written or printed pages, usually bound with a protective cover.
-swim | verb | Move through water by moving your body or limbs.
-house | noun | A building for human habitation.
-write | verb | Compose text.
-car | noun | A road vehicle, typically with four wheels, powered by an internal combustion engine.
-jump | verb | Push oneself off a surface and into the air.
-computer | noun | An electronic device for storing and processing data.
-eat | verb | Put food into the mouth, chew, and swallow it.
-chair | noun | A piece of furniture for sitting.
-sing | verb | Make musical sounds with the voice.
-dog | noun | A domesticated carnivorous mammal.
-dance | verb | Move rhythmically to music.
-pen | noun | An instrument for writing or drawing with ink.
-fly | verb | Move through the air using wings.
-tree | noun | A perennial plant with a trunk and branches.
-paint | verb | Apply color to a surface using a brush or other tool.
-river | noun | A large, flowing body of water.
-read | verb | Look at and comprehend the meaning of written or printed matter.
-television | noun | A device for receiving television signals and reproducing them on a screen.
-drive | verb | Operate and control the direction and speed of a vehicle.
-school | noun | An institution for educating children.
-cook | verb | Prepare food by heating it.
-phone | noun | A device used for voice communication over long distances.
-jump | verb | Push oneself off the ground and into the air.
-sun | noun | The star at the center of the solar system.
-laugh | verb | Make spontaneous sounds of amusement.
-shirt | noun | A garment for the upper body.
-train | verb | Teach or develop skills through practice.
-moon | noun | The natural satellite of Earth.
-sleep | verb | Rest by lying down and becoming unconscious.
-umbrella | noun | A device used for protection against rain or sun.
-skate | verb | Glide over a surface on skates or a skateboard.
-garden | noun | An area of ground where plants are grown.
-climb | verb | Ascend or go up something.
-camera | noun | A device for capturing photographs or videos.
-swim | verb | Move through water by moving the body or limbs.
-phone | noun | A device used for telecommunication.
-glove | noun | A covering for the hand with separate sections for each finger.
-soccer | noun | A team sport played with a round ball on a field.
-write | verb | Produce text by marking paper or another surface.
-bicycle | noun | A vehicle with two wheels that is powered by pedaling.
-paint | verb | Apply a color or pigment to a surface.
-lamp | noun | A device that produces light.
-bread | noun | A staple food made from flour and water.
-carpet | noun | A woven or felted fabric used as a floor covering.
-computer | noun | A device for processing and storing data.
-television | noun | A device for viewing broadcasted programs.
-school | noun | An institution for educational instruction.
-laptop | noun | A portable computer with a screen and keyboard.
-dish | noun | A shallow container used for serving or cooking food.
-airplane | noun | A powered flying vehicle with wings.
-jacket | noun | A piece of clothing for the upper body.
-guitar | noun | A stringed musical instrument.
-soccer | noun | A team sport played on a field with a spherical ball.
-train | noun | A series of connected vehicles traveling on railways.
-keyboard | noun | A device for typing on a computer.
-cat | noun | A small domesticated carnivorous mammal.
-house | noun | A building for people to live in.
-television | noun | An electronic device for viewing broadcasted content.
+apple | noun | A round fruit with red or green skin and a whitish interior. | She ate a juicy apple for lunch.
+run | verb | Move at a speed faster than a walk. | He decided to run to the store to save time.
+book | noun | A set of written or printed pages, usually bound with a protective cover. | She borrowed a fascinating book from the library.
+swim | verb | Move through water by moving your body or limbs. | They love to swim in the ocean during summer.
+house | noun | A building for human habitation. | The house on the corner is painted blue.
+write | verb | Compose text. | She likes to write stories in her free time.
+car | noun | A road vehicle, typically with four wheels, powered by an internal combustion engine. | They bought a new car last month.
+jump | verb | Push oneself off a surface and into the air. | The kids love to jump on the trampoline.
+computer | noun | An electronic device for storing and processing data. | He uses his computer to work from home.
+eat | verb | Put food into the mouth, chew, and swallow it. | They like to eat dinner together as a family.
+chair | noun | A piece of furniture for sitting. | He sat down on the chair to read the newspaper.
+sing | verb | Make musical sounds with the voice. | She loves to sing in the shower.
+dog | noun | A domesticated carnivorous mammal. | Their dog loves to play fetch in the park.
+dance | verb | Move rhythmically to music. | They dance at the party until late at night.
+pen | noun | An instrument for writing or drawing with ink. | He signed the contract with a blue pen.
+fly | verb | Move through the air using wings. | The birds fly south for the winter.
+tree | noun | A perennial plant with a trunk and branches. | The tree in their yard is over a hundred years old.
+paint | verb | Apply color to a surface using a brush or other tool. | She decided to paint the walls a light blue.
+river | noun | A large, flowing body of water. | They went fishing in the river last weekend.
+read | verb | Look at and comprehend the meaning of written or printed matter. | He likes to read before going to bed.
+television | noun | A device for receiving television signals and reproducing them on a screen. | They watched the news on television.
+drive | verb | Operate and control the direction and speed of a vehicle. | She learned to drive a car when she was sixteen.
+school | noun | An institution for educating children. | The children walk to school every morning.
+cook | verb | Prepare food by heating it. | He loves to cook Italian dishes.
+phone | noun | A device used for voice communication over long distances. | She called her friend on the phone.
+jump | verb | Push oneself off the ground and into the air. | He can jump very high on the trampoline.
+sun | noun | The star at the center of the solar system. | The sun rises in the east and sets in the west.
+laugh | verb | Make spontaneous sounds of amusement. | The joke made everyone laugh.
+shirt | noun | A garment for the upper body. | He wore a blue shirt to the meeting.
+train | verb | Teach or develop skills through practice. | She will train for the marathon every morning.
+moon | noun | The natural satellite of Earth. | The moon was full and bright last night.
+sleep | verb | Rest by lying down and becoming unconscious. | He likes to sleep late on weekends.
+umbrella | noun | A device used for protection against rain or sun. | She carried an umbrella to stay dry in the rain.
+skate | verb | Glide over a surface on skates or a skateboard. | They skate at the rink every Friday.
+garden | noun | An area of ground where plants are grown. | She grows tomatoes in her garden.
+climb | verb | Ascend or go up something. | They climb the mountain every summer.
+camera | noun | A device for capturing photographs or videos. | She took a photo with her camera.
+swim | verb | Move through water by moving the body or limbs. | They swim in the pool every afternoon.
+phone | noun | A device used for telecommunication. | She answered the phone on the first ring.
+glove | noun | A covering for the hand with separate sections for each finger. | He wore a glove to keep his hands warm.
+soccer | noun | A team sport played with a round ball on a field. | They play soccer every weekend.
+write | verb | Produce text by marking paper or another surface. | She likes to write letters to her friends.
+bicycle | noun | A vehicle with two wheels that is powered by pedaling. | He rides his bicycle to work every day.
+paint | verb | Apply a color or pigment to a surface. | She will paint the fence this weekend.
+lamp | noun | A device that produces light. | He turned on the lamp to read.
+bread | noun | A staple food made from flour and water. | She baked fresh bread this morning.
+carpet | noun | A woven or felted fabric used as a floor covering. | The living room has a new carpet.
+computer | noun | A device for processing and storing data. | He bought a new computer for his office.
+television | noun | A device for viewing broadcasted programs. | They watched their favorite show on television.
+school | noun | An institution for educational instruction. | The children are excited to start a new school year.
+laptop | noun | A portable computer with a screen and keyboard. | She uses her laptop for work and entertainment.
+dish | noun | A shallow container used for serving or cooking food. | She washed the dishes after dinner.
+airplane | noun | A powered flying vehicle with wings. | They traveled to Europe by airplane.
+jacket | noun | A piece of clothing for the upper body. | He wore a warm jacket in the winter.
+guitar | noun | A stringed musical instrument. | She plays the guitar in a band.
+soccer | noun | A team sport played on a field with a spherical ball. | They have a soccer game every Saturday.
+train | noun | A series of connected vehicles traveling on railways. | They took the train to the city.
+keyboard | noun | A device for typing on a computer. | He spilled coffee on his keyboard.
+cat | noun | A small domesticated carnivorous mammal. | The cat likes to sit by the window.
+house | noun | A building for people to live in. | They bought a new house in the suburbs.
+television | noun | An electronic device for viewing broadcasted content. | They watched the documentary on television.
+boat | noun | A small vessel for traveling over water. | They went for a ride in a boat.
+cake | noun | A sweet baked dessert, usually made with flour, sugar, and eggs. | She baked a chocolate cake for the party.
+fish | noun | A limbless cold-blooded vertebrate animal with gills and fins living wholly in water. | They caught a fish in the lake.
+horse | noun | A large, solid-hoofed, herbivorous quadruped, domesticated since prehistoric times. | She rode a horse at the farm.
+music | noun | Vocal or instrumental sounds combined to produce harmony. | He listens to music while studying.
+pencil | noun | An instrument for writing or drawing, consisting of a thin stick of graphite enclosed in wood. | She drew a picture with a pencil.
+water | noun | A transparent, odorless, tasteless liquid that forms the seas, lakes, rivers, and rain. | They drank a glass of water.
+window | noun | An opening in the wall or roof of a building, fitted with glass to admit light or air. | She opened the window to let in fresh air.
