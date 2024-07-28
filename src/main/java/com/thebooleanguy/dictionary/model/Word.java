@@ -2,12 +2,12 @@
 
 package com.thebooleanguy.dictionary.model;
 
-public class WordInfo {
+public class Word {
     private String word;
     private String partOfSpeech;
     private String definition;
 
-    public WordInfo(String word, String partOfSpeech, String definition) {
+    public Word(String word, String partOfSpeech, String definition) {
         this.word = word;
         this.partOfSpeech = partOfSpeech;
         this.definition = definition;

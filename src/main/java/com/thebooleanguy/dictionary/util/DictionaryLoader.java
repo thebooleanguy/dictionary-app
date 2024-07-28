@@ -2,7 +2,7 @@
 
 package com.thebooleanguy.dictionary.util;
 
-import com.thebooleanguy.dictionary.model.WordInfo;
+import com.thebooleanguy.dictionary.model.Word;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
@@ -16,8 +16,8 @@ import java.util.List;
 @Component
 public class DictionaryLoader {
 
-    public List<WordInfo> loadDictionary() throws IOException {
-        List<WordInfo> dictionary = new ArrayList<>();
+    public List<Word> loadDictionary() throws IOException {
+        List<Word> dictionary = new ArrayList<>();
         Resource resource;
         resource = new ClassPathResource("dictionary.txt");
 
@@ -31,7 +31,7 @@ public class DictionaryLoader {
                 // Check if the line has exactly 3 parts
                 if (parts.length == 3) {
                     // Add a new WordInfo object to the dictionary list
-                    dictionary.add(new WordInfo(parts[0].trim(), parts[1].trim(), parts[2].trim()));
+                    dictionary.add(new Word(parts[0].trim(), parts[1].trim(), parts[2].trim()));
                 }
             }
         }
