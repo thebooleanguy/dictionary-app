@@ -1,3 +1,5 @@
+// A Trie data structure for efficient retrieval of words with autocomplete
+
 package com.thebooleanguy.dictionary.dataStructure;
 
 import java.util.List;

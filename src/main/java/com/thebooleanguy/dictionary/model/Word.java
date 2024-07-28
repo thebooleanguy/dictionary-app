@@ -1,3 +1,5 @@
+// A model class representing a word with its part of speech and definition.
+
 package com.thebooleanguy.dictionary.model;
 
 public class Word {

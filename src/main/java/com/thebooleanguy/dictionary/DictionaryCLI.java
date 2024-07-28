@@ -1,3 +1,5 @@
+// A small CLI interface mainly for testing purposes
+
 package com.thebooleanguy.dictionary;
 
 import java.io.IOException;
