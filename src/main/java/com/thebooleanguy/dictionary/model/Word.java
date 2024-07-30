@@ -6,8 +6,8 @@ public class Word {
     private String word;
     private String partOfSpeech;
     private String definition;
-    private String sentence; // Sentence example
-    private int frequency; // New field for frequency or score
+    private String sentence; // Example Sentence
+    private int frequency; // How common the word is
 
     public Word(String word, String partOfSpeech, String definition, String sentence, int frequency) {
         this.word = word;
