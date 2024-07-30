@@ -1,7 +1,6 @@
 package com.thebooleanguy.dictionary;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import com.thebooleanguy.dictionary.model.Word;
