@@ -1,13 +1,14 @@
 package com.thebooleanguy.dictionary.service;
 
+/**
+ * The Levenshtein Distance is a measure of the difference between two sequences
+     * and is defined as the minimum number of single-character edits (insertions, deletions,
+     * or substitutions) required to change one word into the other.
+     */
 public class LevenshteinDistance {
 
     /**
      * Computes the Levenshtein Distance between two strings.
-     * The Levenshtein Distance is a measure of the difference between two sequences
-     * and is defined as the minimum number of single-character edits (insertions, deletions,
-     * or substitutions) required to change one word into the other.
-     *
      * @param s1 the first string
      * @param s2 the second string
      * @return the Levenshtein Distance between s1 and s2
