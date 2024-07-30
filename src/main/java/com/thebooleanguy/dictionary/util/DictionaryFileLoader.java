@@ -29,9 +29,11 @@ public class DictionaryFileLoader {
                 // Split the line by '|' to separate word, part of speech, and definition
                 String[] parts = line.split("\\|");
                 // Check if the line has exactly 4 parts
-                if (parts.length == 4) {
+                if (parts.length == 5) {
+                    // Parse frequency
+                    int frequency = Integer.parseInt(parts[4].trim());
                     // Add a new WordInfo object to the dictionary list
-                    dictionary.add(new Word(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim()));
+                    dictionary.add(new Word(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), frequency));
                 }
             }
         }

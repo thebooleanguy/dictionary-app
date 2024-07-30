@@ -6,13 +6,15 @@ public class Word {
     private String word;
     private String partOfSpeech;
     private String definition;
-    private String sentence;
+    private String sentence; // Sentence example
+    private int frequency; // New field for frequency or score
 
-    public Word(String word, String partOfSpeech, String definition, String sentence) {
+    public Word(String word, String partOfSpeech, String definition, String sentence, int frequency) {
         this.word = word;
         this.partOfSpeech = partOfSpeech;
         this.definition = definition;
         this.sentence = sentence;
+        this.frequency = frequency;
     }
 
     public String getWord() {
@@ -31,9 +33,13 @@ public class Word {
         return sentence;
     }
 
+    public int getFrequency() {
+        return frequency;
+    }
+
     @Override
-    // Concatenate the 4 Strings into one
     public String toString() {
-        return word + " (" + partOfSpeech + "): " + definition + " Example: " + sentence;
+        return word + " (" + partOfSpeech + "): " + definition + " Example: " + sentence + " Frequency: " + frequency;
     }
 }
+

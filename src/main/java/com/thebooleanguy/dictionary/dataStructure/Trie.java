@@ -13,6 +13,10 @@ public class Trie {
     public Trie(List<Word> wordList) {
         root = new TrieNode('\0');
         this.wordList = wordList;
+        // Insert all words into the Trie during initialization
+        for (int i = 0; i < wordList.size(); i++) {
+            insert(i);
+        }
     }
 
     // Inner class representing a node in the Trie
@@ -70,6 +74,8 @@ public class Trie {
         if (res != null) {
             collectAllWords(res, words);
         }
+        // Sort words by frequency in descending order
+        words.sort((w1, w2) -> Integer.compare(w2.getFrequency(), w1.getFrequency()));
         return words;
     }
 
@@ -86,3 +92,4 @@ public class Trie {
         }
     }
 }
+
