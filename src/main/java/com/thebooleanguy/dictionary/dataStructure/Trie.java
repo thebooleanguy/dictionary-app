@@ -74,6 +74,8 @@ public class Trie {
         if (res != null) {
             collectAllWords(res, words);
         }
+
+        // !TODO Implement sorting by hand
         // Sort words by frequency in descending order
         words.sort((w1, w2) -> Integer.compare(w2.getFrequency(), w1.getFrequency()));
         return words;

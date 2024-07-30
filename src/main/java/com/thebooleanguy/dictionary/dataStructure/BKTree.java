@@ -77,6 +77,7 @@ public class BKTree {
         List<Word> results = new ArrayList<>();
         search(root, word, maxDistance, results);
 
+        // !TODO Implement sorting by hand
         // Sort results by frequency in descending order
         return results.stream()
                 .sorted((w1, w2) -> Integer.compare(w2.getFrequency(), w1.getFrequency()))
