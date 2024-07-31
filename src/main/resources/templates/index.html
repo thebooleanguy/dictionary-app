@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="pico-background-light pico-text-dark">
-<main class="container">
+<main class="container card">
     <h1 class="text-center">Dictionary Search</h1>
 
     <!-- Display Error Message -->
@@ -30,9 +30,6 @@
         <h2 class="text-center">Search Results for "<span th:text="${prefix}"></span>"</h2>
 
         <!-- Display Exact Matches -->
-        <div th:if="${#lists.isEmpty(exactMatches)}" class="no-results">
-            <p>No exact matches found for prefix "<span th:text="${prefix}"></span>".</p>
-        </div>
         <div th:if="${!#lists.isEmpty(exactMatches)}" class="matches">
             <h3>Prefix Matches:</h3>
             <ul>
@@ -46,10 +43,11 @@
             </ul>
         </div>
 
-        <!-- Display Suggestions -->
-        <div th:if="${#lists.isEmpty(suggestions)}" class="no-suggestions">
-            <p>No similar words found.</p>
+        <div th:if="${#lists.isEmpty(exactMatches)}" class="no-results">
+            <p>No exact matches found for prefix "<span th:text="${prefix}"></span>".</p>
         </div>
+
+        <!-- Display Suggestions -->
         <div th:if="${!#lists.isEmpty(suggestions)}" class="suggestions">
             <h3>Suggested Words:</h3>
             <ul>
@@ -61,6 +59,10 @@
                     <small>Frequency: <span th:text="${word.frequency}"></span></small>
                 </li>
             </ul>
+        </div>
+
+        <div th:if="${#lists.isEmpty(suggestions) and #lists.isEmpty(exactMatches)}" class="no-suggestions">
+            <p>No similar words found.</p>
         </div>
     </div>
 

@@ -1,15 +1,27 @@
 /* styles.css */
 
+/* Base Colors */
+:root {
+    --primary-color: #6c63ff;
+    --secondary-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+}
+
 /* Container Styling */
 .container {
-    max-width: 800px;
+    max-width: 600px;
     margin: auto;
-    padding: 1rem;
+    padding: 2rem;
+    background: var(--secondary-color);
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Centered Heading */
 h1.text-center {
     text-align: center;
+    color: var(--primary-color);
 }
 
 /* Search Form Styling */
@@ -18,21 +30,29 @@ h1.text-center {
 }
 
 .form fieldset {
-    border: 1px solid var(--pico-color-light);
-    border-radius: 0.5rem;
-    padding: 1rem;
+    border: none;
+    padding: 0;
 }
 
 .form input[type="text"] {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid var(--pico-color-light);
-    border-radius: 0.25rem;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
 }
 
 .form button {
-    margin-top: 0.5rem;
-    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background: darken(var(--primary-color), 10%);
 }
 
 /* Results Container */
@@ -44,19 +64,34 @@ h1.text-center {
 .result-item {
     margin-bottom: 1.5rem;
     padding: 1rem;
-    border: 1px solid var(--pico-color-light);
+    border: 1px solid var(--border-color);
     border-radius: 0.5rem;
+    background: white;
+}
+
+.result-item strong {
+    color: var(--primary-color);
 }
 
 /* No Results/Suggestions Styling */
 .no-results, .no-suggestions {
     padding: 1rem;
-    border: 1px solid var(--pico-color-light);
+    border: 0px solid var(--border-color);
     border-radius: 0.5rem;
+    background: var(--secondary-color);
 }
 
 /* Search Again Link Styling */
 .search-again a {
     display: inline-block;
     margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+
+.search-again a:hover {
+    background: darken(var(--primary-color), 10%);
 }
