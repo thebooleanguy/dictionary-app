@@ -2,6 +2,7 @@ package com.thebooleanguy.dictionary;
 
 import com.thebooleanguy.dictionary.model.Word;
 import com.thebooleanguy.dictionary.service.DictionaryService;
+import com.thebooleanguy.dictionary.model.SearchResult;
 
 import java.util.List;
 import java.util.Scanner;
@@ -27,24 +28,34 @@ public class DictionaryCLI {
     private void search() {
         System.out.println("\nEnter the prefix to search:");
         String prefix = scanner.nextLine();
-        List<Word> results = dictionaryService.searchWords(prefix);
+        SearchResult result = dictionaryService.searchWords(prefix);
 
-        if (!results.isEmpty()) {
-            displayWords(results, prefix);
+        List<Word> exactMatches = result.getExactMatches();
+        List<Word> suggestions = result.getSuggestions();
+
+        if (!exactMatches.isEmpty()) {
+            System.out.println("\nPrefix Matches:");
+            displayWords(exactMatches);
         } else {
-            System.out.println("\nNo words found with prefix \"" + prefix + "\".");
+            System.out.println("\nNo exact matches found for prefix \"" + prefix + "\".");
+        }
+
+        if (!suggestions.isEmpty()) {
+            System.out.println("\nSuggested Words:");
+            displayWords(suggestions);
+        } else if (exactMatches.isEmpty()) {
+            System.out.println("\nNo similar words found.");
         }
     }
 
-    private void displayWords(List<Word> words, String header) {
-        System.out.println("\n" + header + ":");
+    private void displayWords(List<Word> words) {
         int totalWords = words.size();
         int start = 0;
         int end = Math.min(PAGE_SIZE, totalWords);
 
         while (true) {
             for (int i = start; i < end; i++) {
-                System.out.println((i + 1) + ". " + words.get(i));
+                System.out.println((i + 1) + ". " + words.get(i).toString());
             }
 
             if (end >= totalWords) {
@@ -80,7 +91,7 @@ public class DictionaryCLI {
     private void displayAllWords(List<Word> words) {
         System.out.println("\nDisplaying all entries:");
         for (int i = 0; i < words.size(); i++) {
-            System.out.println((i + 1) + ". " + words.get(i));
+            System.out.println((i + 1) + ". " + words.get(i).toString());
         }
         System.out.println("\nEnd of list. Press 'r' to return to search.");
         scanner.nextLine(); // Wait for user input to return

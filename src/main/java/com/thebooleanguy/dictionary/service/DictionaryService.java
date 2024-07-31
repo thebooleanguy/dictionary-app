@@ -4,12 +4,14 @@ package com.thebooleanguy.dictionary.service;
 
 import com.thebooleanguy.dictionary.dataStructure.BKTree;
 import com.thebooleanguy.dictionary.dataStructure.Trie;
+import com.thebooleanguy.dictionary.model.SearchResult;
 import com.thebooleanguy.dictionary.model.Word;
 import com.thebooleanguy.dictionary.util.DictionaryFileLoader;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,11 +40,16 @@ public class DictionaryService {
         }
     }
 
-    public List<Word> searchWords(String prefix) {
-        List<Word> results = trie.startsWith(prefix);
-        if (results.isEmpty()) {
-            results = bkTree.search(prefix, 2);
+    public SearchResult searchWords(String prefix) {
+        List<Word> exactMatches = trie.startsWith(prefix);
+        List<Word> suggestions = new ArrayList<>();
+
+        if (exactMatches.isEmpty()) {
+            suggestions.addAll(bkTree.search(prefix, 2)); // Use BKTree to find similar words
         }
-        return results;
+
+        return new SearchResult(exactMatches, suggestions);
     }
 }
+
+

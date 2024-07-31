@@ -5,25 +5,58 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>Dictionary Search</h1>
-<form action="/search" method="post">
-    <input type="text" name="prefix" placeholder="Enter a prefix" required>
-    <button type="submit">Search</button>
-</form>
+<div class="container">
+    <h1>Dictionary Search</h1>
 
-<!-- If results are present, show them -->
-<div th:if="${results != null}">
-    <h2>Search Results for "<span th:text="${prefix}"></span>"</h2>
-    <ul>
-        <li th:each="word : ${results}">
-            <div>
-                <h3 th:text="${word.word}">Word</h3>
-                <p><strong>Part of Speech:</strong> <span th:text="${word.partOfSpeech}">Part of Speech</span></p>
-                <p><strong>Meaning:</strong> <span th:text="${word.definition}">Meaning</span></p>
-            </div>
-        </li>
-    </ul>
-    <a href="/" th:href="@{/}">Search Again</a>
+    <!-- Search Form -->
+    <form action="/search" method="post" class="search-form">
+        <input type="text" name="prefix" placeholder="Enter a prefix" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Search Results -->
+    <div th:if="${prefix}" class="results-container">
+        <h2>Search Results for "<span th:text="${prefix}"></span>"</h2>
+
+        <!-- Display Exact Matches -->
+        <div th:if="${#lists.isEmpty(exactMatches)}" class="no-results">
+            <p>No exact matches found for prefix "<span th:text="${prefix}"></span>".</p>
+        </div>
+        <div th:if="${!#lists.isEmpty(exactMatches)}" class="matches">
+            <h3>Prefix Matches:</h3>
+            <ul>
+                <li th:each="word : ${exactMatches}" class="result-item">
+                    <strong th:text="${word.word}"></strong>
+                    (<span th:text="${word.partOfSpeech}"></span>):
+                    <p th:text="${word.definition}"></p>
+                    <em>Example: <span th:text="${word.sentence}"></span></em>
+                    <small>Frequency: <span th:text="${word.frequency}"></span></small>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Display Suggestions -->
+        <div th:if="${#lists.isEmpty(suggestions)}" class="no-suggestions">
+            <p>No similar words found.</p>
+        </div>
+        <div th:if="${!#lists.isEmpty(suggestions)}" class="suggestions">
+            <h3>Suggested Words:</h3>
+            <ul>
+                <li th:each="word : ${suggestions}" class="result-item">
+                    <strong th:text="${word.word}"></strong>
+                    (<span th:text="${word.partOfSpeech}"></span>):
+                    <p th:text="${word.definition}"></p>
+                    <em>Example: <span th:text="${word.sentence}"></span></em>
+                    <small>Frequency: <span th:text="${word.frequency}"></span></small>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Return to Search Form -->
+    <div th:if="${prefix}" class="search-again">
+        <a href="/">Search Again</a>
+    </div>
 </div>
 </body>
 </html>
