@@ -2,8 +2,8 @@
 
 package com.thebooleanguy.dictionary.service;
 
-import com.thebooleanguy.dictionary.dataStructure.BKTree;
-import com.thebooleanguy.dictionary.dataStructure.Trie;
+import com.thebooleanguy.dictionary.dataStructure.structures.BKTree;
+import com.thebooleanguy.dictionary.dataStructure.structures.Trie;
 import com.thebooleanguy.dictionary.model.SearchResult;
 import com.thebooleanguy.dictionary.model.Word;
 import com.thebooleanguy.dictionary.util.DictionaryFileLoader;

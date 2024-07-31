@@ -1,4 +1,4 @@
-package com.thebooleanguy.dictionary.dataStructure;
+package com.thebooleanguy.dictionary.dataStructure.structures;
 
 import com.thebooleanguy.dictionary.dataStructure.algorithms.LevenshteinDistance;
 import com.thebooleanguy.dictionary.model.Word;

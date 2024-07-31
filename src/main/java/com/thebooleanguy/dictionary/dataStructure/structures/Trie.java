@@ -1,4 +1,4 @@
-package com.thebooleanguy.dictionary.dataStructure;
+package com.thebooleanguy.dictionary.dataStructure.structures;
 
 import java.util.List;
 import com.thebooleanguy.dictionary.model.Word;
