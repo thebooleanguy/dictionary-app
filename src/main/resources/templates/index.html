@@ -2,16 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dictionary Search</title>
+    <!-- Pico.css-->
+    <link rel="stylesheet" href="/css/pico.min.css">
+    <!-- Your custom styles if needed -->
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<div class="container">
+<main class="container">
     <h1>Dictionary Search</h1>
 
     <!-- Search Form -->
-    <form action="/search" method="post" class="search-form">
-        <input type="text" name="prefix" placeholder="Enter a prefix" required>
-        <button type="submit">Search</button>
+    <form action="/search" method="post" class="form">
+        <fieldset>
+            <legend>Search for Words</legend>
+            <input type="text" name="prefix" placeholder="Enter a prefix" required>
+            <button type="submit">Search</button>
+        </fieldset>
     </form>
 
     <!-- Search Results -->
@@ -57,6 +63,6 @@
     <div th:if="${prefix}" class="search-again">
         <a href="/">Search Again</a>
     </div>
-</div>
+</main>
 </body>
 </html>
