@@ -1,58 +1,53 @@
 package com.thebooleanguy.dictionary.service;
 
+import java.util.List;
+import com.thebooleanguy.dictionary.model.Word;
+
 public class QuickSort {
 
-    // Public method to call QuickSort
-    public static void quickSort(int[] arr) {
-        qs(arr, 0, arr.length - 1);
+    // Public method to call QuickSort on a List of Word objects
+    public static void quickSort(List<Word> list) {
+        qs(list, 0, list.size() - 1);
     }
 
-    // Recursive QuickSort method
-    private static void qs(int[] arr, int lo, int hi) {
+    // Recursive QuickSort method for a List of Word objects
+    private static void qs(List<Word> list, int lo, int hi) {
         if (lo >= hi) {
             return;
         }
 
-        int pivotIdx = partition(arr, lo, hi);
+        int pivotIdx = partition(list, lo, hi);
 
         // Sub-sort Left side
-        qs(arr, lo, pivotIdx - 1);
+        qs(list, lo, pivotIdx - 1);
         // Sub-sort Right side
-        qs(arr, pivotIdx + 1, hi);
+        qs(list, pivotIdx + 1, hi);
     }
 
-    // Partition method to return the pivot index
-    private static int partition(int[] arr, int lo, int hi) {
-        int pivot = arr[hi];
+    // Partition method to return the pivot index for a List of Word objects
+    private static int partition(List<Word> list, int lo, int hi) {
+        Word pivot = list.get(hi);
         int idx = lo - 1;
 
         for (int i = lo; i < hi; i++) {
-            if (arr[i] <= pivot) {
+            if (list.get(i).getFrequency() > pivot.getFrequency()) { // Note: Sorting in descending order
                 idx++;
-                swap(arr, i, idx);
+                swap(list, i, idx);
             }
         }
 
         idx++;
-        swap(arr, idx, hi);
+        swap(list, idx, hi);
 
         return idx;
     }
 
-    // Swap method to swap elements in the array
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-    // Main method for testing
-    public static void main(String[] args) {
-        int[] arr = { 34, 7, 23, 32, 5, 62 };
-        quickSort(arr);
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+    // Swap method to swap elements in the List of Word objects
+    private static void swap(List<Word> list, int i, int j) {
+        Word temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
     }
 }
+
 
