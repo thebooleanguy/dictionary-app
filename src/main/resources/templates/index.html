@@ -10,5 +10,20 @@
     <input type="text" name="prefix" placeholder="Enter a prefix" required>
     <button type="submit">Search</button>
 </form>
+
+<!-- If results are present, show them -->
+<div th:if="${results != null}">
+    <h2>Search Results for "<span th:text="${prefix}"></span>"</h2>
+    <ul>
+        <li th:each="word : ${results}">
+            <div>
+                <h3 th:text="${word.word}">Word</h3>
+                <p><strong>Part of Speech:</strong> <span th:text="${word.partOfSpeech}">Part of Speech</span></p>
+                <p><strong>Meaning:</strong> <span th:text="${word.definition}">Meaning</span></p>
+            </div>
+        </li>
+    </ul>
+    <a href="/" th:href="@{/}">Search Again</a>
+</div>
 </body>
 </html>

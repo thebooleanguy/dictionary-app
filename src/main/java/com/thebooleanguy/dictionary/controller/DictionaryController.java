@@ -1,19 +1,23 @@
 package com.thebooleanguy.dictionary.controller;
 
-import com.thebooleanguy.dictionary.model.Word;
 import com.thebooleanguy.dictionary.service.DictionaryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.thebooleanguy.dictionary.model.Word;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
 public class DictionaryController {
 
-    @Autowired
-    private DictionaryService dictionaryService;
+    private final DictionaryService dictionaryService;
+
+    public DictionaryController(DictionaryService dictionaryService) {
+        this.dictionaryService = dictionaryService;
+    }
 
     @GetMapping("/")
     public String index() {
@@ -21,10 +25,17 @@ public class DictionaryController {
     }
 
     @PostMapping("/search")
-    public String search(@RequestParam String prefix, Model model) {
-        List<Word> results = dictionaryService.searchWords(prefix);
-        model.addAttribute("results", results);
-        model.addAttribute("prefix", prefix);
-        return "search";
+    public String search(@RequestParam("prefix") String prefix, Model model) {
+        try {
+            List<Word> results = dictionaryService.searchWords(prefix);
+            model.addAttribute("prefix", prefix);
+            model.addAttribute("results", results);
+        } catch (Exception e) {
+            // Log the error and add a user-friendly message
+            System.err.println("Error occurred: " + e.getMessage());
+            model.addAttribute("error", "An unexpected error occurred. Please try again.");
+        }
+        return "index"; // Template setup
     }
 }
+
