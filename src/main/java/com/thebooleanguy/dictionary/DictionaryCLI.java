@@ -16,6 +16,14 @@ public class DictionaryCLI {
     private static final Pattern VALID_PREFIX_PATTERN = Pattern.compile("^[a-zA-Z]+$");
     private static final int PAGE_SIZE = 10;
 
+    // ANSI color codes
+    private static final String RESET = "\033[0m";
+    private static final String RED = "\033[0;31m";
+    private static final String GREEN = "\033[0;32m";
+    private static final String YELLOW = "\033[0;33m";
+    private static final String BLUE = "\033[0;34m";
+    private static final String CYAN = "\033[0;36m";
+
     public DictionaryCLI() {
         this.scanner = new Scanner(System.in);
         this.dictionaryService = initializeDictionaryService();
@@ -30,12 +38,12 @@ public class DictionaryCLI {
     private void search() {
         String prefix;
         while (true) {
-            System.out.println("\nEnter the prefix to search (letters only):");
+            System.out.println(CYAN + "\nEnter the prefix to search (letters only):" + RESET);
             prefix = scanner.nextLine().trim();
             if (prefix.isEmpty()) {
-                System.out.println("Prefix cannot be empty. Please try again.");
+                System.out.println(RED + "Prefix cannot be empty. Please try again." + RESET);
             } else if (!VALID_PREFIX_PATTERN.matcher(prefix).matches()) {
-                System.out.println("Invalid input. Only letters are allowed. Please try again.");
+                System.out.println(RED + "Invalid input. Only letters are allowed. Please try again." + RESET);
             } else {
                 break;
             }
@@ -47,17 +55,17 @@ public class DictionaryCLI {
         List<Word> suggestions = result.getSuggestions();
 
         if (!exactMatches.isEmpty()) {
-            System.out.println("\nPrefix Matches:");
+            System.out.println(GREEN + "\nPrefix Matches:" + RESET);
             displayWords(exactMatches);
         } else {
-            System.out.println("\nNo exact matches found for prefix \"" + prefix + "\".");
+            System.out.println(YELLOW + "\nNo exact matches found for prefix \"" + prefix + "\"." + RESET);
         }
 
         if (!suggestions.isEmpty()) {
-            System.out.println("\nSuggested Words:");
+            System.out.println(GREEN + "\nSuggested Words:" + RESET);
             displayWords(suggestions);
         } else if (exactMatches.isEmpty()) {
-            System.out.println("\nNo similar words found.");
+            System.out.println(YELLOW + "\nNo similar words found." + RESET);
         }
     }
 
@@ -68,16 +76,16 @@ public class DictionaryCLI {
 
         while (true) {
             for (int i = start; i < end; i++) {
-                System.out.println((i + 1) + ". " + words.get(i).toString());
+                System.out.println(BLUE + (i + 1) + ". " + words.get(i).toString() + RESET);
             }
 
             if (end >= totalWords) {
-                System.out.println("\nEnd of list. Press 'q' to quit or 'r' to search again.");
+                System.out.println(CYAN + "\nEnd of list. Press 'q' to quit or 'r' to search again." + RESET);
                 break;
             }
 
-            System.out.println("\nShowing " + start + " to " + (end - 1) + " of " + totalWords + " entries.");
-            System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, or 'q' to quit.");
+            System.out.println(CYAN + "\nShowing " + start + " to " + (end - 1) + " of " + totalWords + " entries.");
+            System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, or 'q' to quit." + RESET);
 
             String input = scanner.nextLine().trim();
             switch (input.toLowerCase()) {
@@ -95,18 +103,18 @@ public class DictionaryCLI {
                 case "q":
                     return;
                 default:
-                    System.out.println("Invalid option. Please try again.");
+                    System.out.println(RED + "Invalid option. Please try again." + RESET);
                     break;
             }
         }
     }
 
     private void displayAllWords(List<Word> words) {
-        System.out.println("\nDisplaying all entries:");
+        System.out.println(GREEN + "\nDisplaying all entries:" + RESET);
         for (int i = 0; i < words.size(); i++) {
-            System.out.println((i + 1) + ". " + words.get(i).toString());
+            System.out.println(BLUE + (i + 1) + ". " + words.get(i).toString() + RESET);
         }
-        System.out.println("\nEnd of list. Press 'r' to return to search.");
+        System.out.println(CYAN + "\nEnd of list. Press 'r' to return to search." + RESET);
         scanner.nextLine(); // Wait for user input to return
     }
 
