@@ -2,6 +2,7 @@ package com.thebooleanguy.dictionary.dataStructure;
 
 import com.thebooleanguy.dictionary.service.LevenshteinDistance;
 import com.thebooleanguy.dictionary.model.Word;
+import com.thebooleanguy.dictionary.service.QuickSort;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,11 +78,9 @@ public class BKTree {
         List<Word> results = new ArrayList<>();
         search(root, word, maxDistance, results);
 
-        // !TODO Implement sorting by hand
         // Sort results by frequency in descending order
-        return results.stream()
-                .sorted((w1, w2) -> Integer.compare(w2.getFrequency(), w1.getFrequency()))
-                .collect(Collectors.toList());
+        QuickSort.quickSort(results);
+        return results;
     }
 
     /**

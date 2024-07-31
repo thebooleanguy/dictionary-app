@@ -2,6 +2,7 @@ package com.thebooleanguy.dictionary.dataStructure;
 
 import java.util.List;
 import com.thebooleanguy.dictionary.model.Word;
+import com.thebooleanguy.dictionary.service.QuickSort;
 
 /**
  * Trie data structure for efficient retrieval of words with autocomplete functionality.
@@ -109,9 +110,8 @@ public class Trie {
             collectAllWords(res, words);
         }
 
-        // !TODO Implement sorting by hand
         // Sort words by frequency in descending order
-        words.sort((w1, w2) -> Integer.compare(w2.getFrequency(), w1.getFrequency()));
+        QuickSort.quickSort(words);
         return words;
     }
 
