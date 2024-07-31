@@ -1,12 +1,15 @@
+// A small CLI Interface mainly for testing
+
 package com.thebooleanguy.dictionary;
+
+import com.thebooleanguy.dictionary.dataStructure.BKTree;
+import com.thebooleanguy.dictionary.dataStructure.Trie;
+import com.thebooleanguy.dictionary.model.Word;
+import com.thebooleanguy.dictionary.util.DictionaryFileLoader;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
-import com.thebooleanguy.dictionary.model.Word;
-import com.thebooleanguy.dictionary.util.DictionaryFileLoader;
-import com.thebooleanguy.dictionary.dataStructure.Trie;
-import com.thebooleanguy.dictionary.dataStructure.BKTree;
 
 public class DictionaryCLI {
 
@@ -62,7 +65,6 @@ public class DictionaryCLI {
             // Spellchecking
             List<Word> closeMatches = bkTree.search(prefix, 2);
             if (!closeMatches.isEmpty()) {
-//                System.out.println("\nClose Matches:");
                 displayWords(closeMatches, "Close matches");
             } else {
                 System.out.println("\nNo close matches found.");
