@@ -1,14 +1,13 @@
 package com.thebooleanguy.dictionary.dataStructure;
 
-import com.thebooleanguy.dictionary.service.LevenshteinDistance;
+import com.thebooleanguy.dictionary.dataStructure.algorithms.LevenshteinDistance;
 import com.thebooleanguy.dictionary.model.Word;
-import com.thebooleanguy.dictionary.service.QuickSort;
+import com.thebooleanguy.dictionary.dataStructure.algorithms.QuickSort;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * BKTree is a data structure for efficiently searching approximate matches

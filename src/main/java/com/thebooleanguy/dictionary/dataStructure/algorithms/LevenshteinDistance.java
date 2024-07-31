@@ -1,4 +1,4 @@
-package com.thebooleanguy.dictionary.service;
+package com.thebooleanguy.dictionary.dataStructure.algorithms;
 
 /**
  * The Levenshtein Distance is a measure of the difference between two sequences

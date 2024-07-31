@@ -2,7 +2,7 @@ package com.thebooleanguy.dictionary.dataStructure;
 
 import java.util.List;
 import com.thebooleanguy.dictionary.model.Word;
-import com.thebooleanguy.dictionary.service.QuickSort;
+import com.thebooleanguy.dictionary.dataStructure.algorithms.QuickSort;
 
 /**
  * Trie data structure for efficient retrieval of words with autocomplete functionality.

@@ -1,7 +1,8 @@
-package com.thebooleanguy.dictionary.service;
+package com.thebooleanguy.dictionary.dataStructure.algorithms;
+
+import com.thebooleanguy.dictionary.model.Word;
 
 import java.util.List;
-import com.thebooleanguy.dictionary.model.Word;
 
 public class QuickSort {
 
