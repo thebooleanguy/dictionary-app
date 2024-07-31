@@ -1,74 +1,38 @@
-// A small CLI Interface mainly for testing
-
 package com.thebooleanguy.dictionary;
 
-import com.thebooleanguy.dictionary.dataStructure.BKTree;
-import com.thebooleanguy.dictionary.dataStructure.Trie;
 import com.thebooleanguy.dictionary.model.Word;
-import com.thebooleanguy.dictionary.util.DictionaryFileLoader;
+import com.thebooleanguy.dictionary.service.DictionaryService;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryCLI {
 
-    private Trie trie;
-    private BKTree bkTree;
-    private List<Word> words;
-    private Scanner scanner;
+    private final DictionaryService dictionaryService;
+    private final Scanner scanner;
 
     private static final int PAGE_SIZE = 10;
 
     public DictionaryCLI() {
-        scanner = new Scanner(System.in);
-        loadDictionary();
-        trie = new Trie(words); // Pass the loaded words to the Trie
-        insertWordsIntoTrie();
-
-        bkTree = new BKTree(words.get(0));
-        insertWordsIntoBKTree();
+        this.scanner = new Scanner(System.in);
+        this.dictionaryService = initializeDictionaryService();
     }
 
-    private void loadDictionary() {
-        DictionaryFileLoader loader = new DictionaryFileLoader();
-        try {
-            words = loader.loadDictionary();
-            System.out.println("Dictionary loaded successfully.");
-        } catch (IOException e) {
-            System.out.println("Failed to load dictionary: " + e.getMessage());
-        }
-    }
-
-    private void insertWordsIntoTrie() {
-        for (int i = 0; i < words.size(); i++) {
-            trie.insert(i);
-        }
-    }
-
-    private void insertWordsIntoBKTree() {
-        for (Word word : words) {
-            bkTree.add(word);
-        }
+    private DictionaryService initializeDictionaryService() {
+        DictionaryService service = new DictionaryService();
+        service.init(); // Initialize the dictionary service
+        return service;
     }
 
     private void search() {
         System.out.println("\nEnter the prefix to search:");
         String prefix = scanner.nextLine();
-        List<Word> results = trie.startsWith(prefix);
+        List<Word> results = dictionaryService.searchWords(prefix);
 
         if (!results.isEmpty()) {
             displayWords(results, prefix);
         } else {
             System.out.println("\nNo words found with prefix \"" + prefix + "\".");
-
-            // Spellchecking
-            List<Word> closeMatches = bkTree.search(prefix, 2);
-            if (!closeMatches.isEmpty()) {
-                displayWords(closeMatches, "Close matches");
-            } else {
-                System.out.println("\nNo close matches found.");
-            }
         }
     }
 
