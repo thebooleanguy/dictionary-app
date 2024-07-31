@@ -1,3 +1,5 @@
+// To be used by the Dictionary
+
 package com.thebooleanguy.dictionary.service;
 
 import com.thebooleanguy.dictionary.dataStructure.BKTree;
