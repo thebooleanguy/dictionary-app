@@ -1,0 +1,62 @@
+/* styles.css */
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+}
+
+/* Centered Heading */
+h1.text-center {
+    text-align: center;
+}
+
+/* Search Form Styling */
+.form {
+    margin-bottom: 2rem;
+}
+
+.form fieldset {
+    border: 1px solid var(--pico-color-light);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--pico-color-light);
+    border-radius: 0.25rem;
+}
+
+.form button {
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+/* Results Container */
+.results-container {
+    margin-top: 2rem;
+}
+
+/* Result Item Styling */
+.result-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--pico-color-light);
+    border-radius: 0.5rem;
+}
+
+/* No Results/Suggestions Styling */
+.no-results, .no-suggestions {
+    padding: 1rem;
+    border: 1px solid var(--pico-color-light);
+    border-radius: 0.5rem;
+}
+
+/* Search Again Link Styling */
+.search-again a {
+    display: inline-block;
+    margin-top: 2rem;
+}

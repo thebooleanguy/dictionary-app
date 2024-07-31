@@ -2,27 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dictionary Search</title>
-    <!-- Pico.css-->
+    <!-- Pico.css -->
     <link rel="stylesheet" href="/css/pico.min.css">
     <!-- Your custom styles if needed -->
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class="pico-background-light pico-text-dark">
 <main class="container">
-    <h1>Dictionary Search</h1>
+    <h1 class="text-center">Dictionary Search</h1>
+
+    <!-- Display Error Message -->
+    <div th:if="${error}" class="notification error">
+        <p th:text="${error}"></p>
+    </div>
 
     <!-- Search Form -->
     <form action="/search" method="post" class="form">
         <fieldset>
             <legend>Search for Words</legend>
             <input type="text" name="prefix" placeholder="Enter a prefix" required>
-            <button type="submit">Search</button>
+            <button type="submit" class="primary">Search</button>
         </fieldset>
     </form>
 
     <!-- Search Results -->
     <div th:if="${prefix}" class="results-container">
-        <h2>Search Results for "<span th:text="${prefix}"></span>"</h2>
+        <h2 class="text-center">Search Results for "<span th:text="${prefix}"></span>"</h2>
 
         <!-- Display Exact Matches -->
         <div th:if="${#lists.isEmpty(exactMatches)}" class="no-results">
@@ -60,8 +65,8 @@
     </div>
 
     <!-- Return to Search Form -->
-    <div th:if="${prefix}" class="search-again">
-        <a href="/">Search Again</a>
+    <div th:if="${prefix}" class="search-again text-center">
+        <a href="/" class="secondary">Search Again</a>
     </div>
 </main>
 </body>

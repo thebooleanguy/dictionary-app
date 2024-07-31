@@ -6,12 +6,14 @@ import com.thebooleanguy.dictionary.model.SearchResult;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class DictionaryCLI {
 
     private final DictionaryService dictionaryService;
     private final Scanner scanner;
 
+    private static final Pattern VALID_PREFIX_PATTERN = Pattern.compile("^[a-zA-Z]+$");
     private static final int PAGE_SIZE = 10;
 
     public DictionaryCLI() {
@@ -26,8 +28,19 @@ public class DictionaryCLI {
     }
 
     private void search() {
-        System.out.println("\nEnter the prefix to search:");
-        String prefix = scanner.nextLine();
+        String prefix;
+        while (true) {
+            System.out.println("\nEnter the prefix to search (letters only):");
+            prefix = scanner.nextLine().trim();
+            if (prefix.isEmpty()) {
+                System.out.println("Prefix cannot be empty. Please try again.");
+            } else if (!VALID_PREFIX_PATTERN.matcher(prefix).matches()) {
+                System.out.println("Invalid input. Only letters are allowed. Please try again.");
+            } else {
+                break;
+            }
+        }
+
         SearchResult result = dictionaryService.searchWords(prefix);
 
         List<Word> exactMatches = result.getExactMatches();
@@ -66,7 +79,7 @@ public class DictionaryCLI {
             System.out.println("\nShowing " + start + " to " + (end - 1) + " of " + totalWords + " entries.");
             System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, or 'q' to quit.");
 
-            String input = scanner.nextLine();
+            String input = scanner.nextLine().trim();
             switch (input.toLowerCase()) {
                 case "n":
                     start = end;
