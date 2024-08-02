@@ -19,7 +19,7 @@ Built for a University DSA Project and still a work in progress.
 
 ### Prerequisites
 
-- Java 11 or higher
+- Java 21 (might work with other versions too)
 - Maven
 
 ### Steps
