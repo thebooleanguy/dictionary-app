@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,6 +33,7 @@ public class DictionaryController {
     /**
      * Handles requests to the root URL ("/") and returns the index view.
      *
+     * @param model The model to add attributes to be used in the view.
      * @return The name of the view to be rendered (index).
      */
     @RequestMapping("/")
@@ -66,6 +67,7 @@ public class DictionaryController {
         model.addAttribute("exactMatches", result.getExactMatches());
         model.addAttribute("suggestions", result.getSuggestions());
         model.addAttribute("queryHistory", dictionaryService.getQueryHistory()); // Include query history
+
         return "index"; // Return the index view with the search results
     }
 
@@ -80,7 +82,12 @@ public class DictionaryController {
         return dictionaryService.getQueryHistory();
     }
 
-
+    /**
+     * Handles GET requests to the "/cachedResult/{query}" URL to retrieve cached search results.
+     *
+     * @param query The query string to look up.
+     * @return A ModelAndView object containing the cached result view or an error view if no cached result is found.
+     */
     @GetMapping("/cachedResult/{query}")
     public ModelAndView getCachedResult(@PathVariable String query) {
         // Process the query and fetch cached results
@@ -92,7 +99,9 @@ public class DictionaryController {
         return new ModelAndView("cachedResultView", "result", result);
     }
 
-    // Data class for handling incoming query data
+    /**
+     * Data class for handling incoming query data.
+     */
     public static class QueryRequest {
         private String query;
 
