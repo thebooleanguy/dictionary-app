@@ -1,6 +1,7 @@
 package com.thebooleanguy.dictionary.service;
 
 import com.thebooleanguy.dictionary.dataStructure.structures.BKTree;
+import com.thebooleanguy.dictionary.dataStructure.structures.LRUCache;
 import com.thebooleanguy.dictionary.dataStructure.structures.Trie;
 import com.thebooleanguy.dictionary.model.SearchResult;
 import com.thebooleanguy.dictionary.model.Word;
@@ -22,7 +23,7 @@ public class DictionaryService {
     private Trie trie;        // Trie structure for prefix-based searches
     private BKTree bkTree;    // BK-Tree structure for approximate searches
     private List<Word> words; // List of words loaded from the dictionary
-    private QueryHistory queryHistory; // LRU cache for query history
+    private LRUCache queryHistory; // LRU cache for query history
 
     /**
      * Initializes the DictionaryService by loading the dictionary file,
@@ -45,7 +46,7 @@ public class DictionaryService {
             insertWordsIntoBKTree();
 
             // Initialize the LRU cache for query history
-            queryHistory = new QueryHistory(5);
+            queryHistory = new LRUCache(5);
         } catch (IOException e) {
             e.printStackTrace(); // Handle IOException during dictionary loading
         }

@@ -1,4 +1,4 @@
-package com.thebooleanguy.dictionary.service;
+package com.thebooleanguy.dictionary.dataStructure.structures;
 
 import com.thebooleanguy.dictionary.model.SearchResult;
 
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * An LRU Cache implementation for storing query history along with results.
  */
-public class QueryHistory {
+public class LRUCache {
     private final LinkedHashMap<String, SearchResult> history; // Holds query history and results
     private final int maxSize; // Maximum size of the cache
 
@@ -19,7 +19,7 @@ public class QueryHistory {
      *
      * @param maxSize The maximum number of queries to retain.
      */
-    public QueryHistory(int maxSize) {
+    public LRUCache(int maxSize) {
         this.maxSize = maxSize;
         this.history = new LinkedHashMap<String, SearchResult>(maxSize, 0.75f, true) {
             @Override
