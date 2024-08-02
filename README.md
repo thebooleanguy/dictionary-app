@@ -2,7 +2,7 @@
 
 A simple yet powerful dictionary web application with autocomplete and spell-checking features, leveraging advanced data structures and algorithms. Built using Java and Spring Boot for a University DSA Project. Still a work in progress!
 
-![Dictionary](https://cdn.britannica.com/97/118097-050-5B2CF2EA/English-dictionary.jpg)
+<img src="https://cdn.britannica.com/97/118097-050-5B2CF2EA/English-dictionary.jpg" alt="Dictionary" width="800" />
 
 ## 🚀 Features
 
@@ -44,6 +44,7 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
     ```bash
     java -jar dictionary-app-cli.jar
     ```
+
 <br>
 
 ### 🏗 Building and Running
@@ -97,7 +98,7 @@ dictionary-app/
 
 #### **Trie**
 
-![Trie](https://danieldev23.github.io/assets/images/algorithm/1126/trie.png)
+<img src="https://danieldev23.github.io/assets/images/algorithm/1126/trie.png" alt="Dictionary" width="800" />
 
 - **Description**: A tree-like data structure for efficient retrieval of words with autocomplete functionality.
 - **How It Works**:
@@ -110,9 +111,9 @@ dictionary-app/
 
 #### **BK Tree**
 
-![BK_Tree](https://miro.medium.com/v2/resize:fit:878/1*vNJ_BwaSD-j2VeGtkbmReg.png)
+<img src="https://miro.medium.com/v2/resize:fit:878/1*vNJ_BwaSD-j2VeGtkbmReg.png" alt="Dictionary" width="800" />
 
-- **Description**: Used for approximate string matching. Finds words similar to a given word based on the Levenshtein distance (edit distance). 
+- **Description**: Used for approximate string matching. Finds words similar to a given word based on the Levenshtein distance (edit distance).
 - **How It Works**: 
   - Words are added to the tree based on their distance from existing words using the Levenshtein distance.
   - During the search, nodes within a specified distance are explored to find approximate matches.
@@ -122,7 +123,7 @@ dictionary-app/
 
 #### **LRU Cache**
 
-![LRU Cache](https://ucarecdn.com/80434174-2689-4352-9445-2b92592954ca/)
+<img src="https://ucarecdn.com/80434174-2689-4352-9445-2b92592954ca/" alt="Dictionary" width="800" />
 
 - **Description**: The application uses an LRU (Least Recently Used) Cache to efficiently manage and store recent search queries. This ensures that only the most recent queries are kept, optimizing performance and memory usage.
 - **Components**:
@@ -143,7 +144,7 @@ dictionary-app/
 
 #### **Levenshtein Distance**
 
-![LevenshteinDistance](https://miro.medium.com/max/1108/1*bEWdxv_FoTQurG9fyS3nSA.jpeg)
+<img src="https://miro.medium.com/max/1108/1*bEWdxv_FoTQurG9fyS3nSA.jpeg" alt="Dictionary" max-width="800" />
 
 - **Description**: Measures the difference between two sequences by calculating the minimum number of single-character edits (insertions, deletions, or substitutions) required to transform one sequence into the other.
 - **Usage**: Used by the BK Tree to find approximate matches based on edit distance.
@@ -152,7 +153,7 @@ dictionary-app/
 
 #### **QuickSort**
 
-![QuickSort](https://miro.medium.com/max/1280/1*aoXS7Bz8ZFEoQ-sq-UycsA.png)
+<img src="https://miro.medium.com/max/1280/1*aoXS7Bz8ZFEoQ-sq-UycsA.png" alt="Dictionary" width="800" />
 
 - **Description**: A highly efficient sorting algorithm using a divide-and-conquer approach to sort lists.
 - **How It Works**:
