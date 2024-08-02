@@ -53,7 +53,7 @@
 				</executions>
 				<configuration>
 					<mainClass>com.thebooleanguy.dictionary.DictionaryWebAppApplication</mainClass>
-					<finalName>dictionary-web-app</finalName>
+					<finalName>dictionary-web</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
