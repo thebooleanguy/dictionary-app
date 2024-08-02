@@ -79,12 +79,10 @@ dictionary-app/
 │       │   ├── DictionaryWebAppApplication.java      # The main class that runs the Spring Boot application.
 │       │   └── dataStructure/                        # Contains data structures and algorithms.
 │       │       ├── algorithms/                       # Algorithms (e.g., QuickSort, LevenshteinDistance)
-│       │       └── structures/                       # Data structures (e.g., Trie, BKTree)
-│       │       └── cache/                           # Contains the LRU Cache implementation
-│       │           └── LRUCache.java                # LRU Cache implementation using LinkedList and HashMap
+│       │       └── structures/                       # Data structures (e.g., Trie, BKTree, LRUCache, HashMap)
 │       └── resources/                                # Contains application resources.
 │           ├── static/                               # Static resources (e.g., CSS, JS) for styling and scripting.
-│           └── templates/                            # Thymeleaf templates (e.g., index.html) used for rendering web pages dynamically.
+│           └── templates/                            # Thymeleaf templates (e.g., index.html, cachedView.html) used for rendering web pages dynamically.
 ├── .gitignore                                        # Git ignore file
 ├── LICENSE                                           # License file
 ├── pom.xml                                           # Maven project file
