@@ -6,9 +6,12 @@ import java.util.List;
 
 public class QuickSort {
 
-    // Public method to call QuickSort on a List of Word objects
-    public static void quickSort(List<Word> list) {
-        qs(list, 0, list.size() - 1);
+    // Public method to call QuickSort with an option to skip the first element
+    public static void quickSort(List<Word> list, boolean skipFirstElement) {
+        int lo = skipFirstElement ? 1 : 0;
+        int hi = list.size() - 1;
+
+        qs(list, lo, hi);
     }
 
     // Recursive QuickSort method for a List of Word objects
@@ -50,5 +53,3 @@ public class QuickSort {
         list.set(j, temp);
     }
 }
-
-
