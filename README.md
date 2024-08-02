@@ -99,7 +99,7 @@ dictionary-app/
 
 #### **Trie**
 
-![Trie](https://mymusing.co/wp-content/uploads/2018/05/trie_example.png)
+![Trie](https://danieldev23.github.io/assets/images/algorithm/1126/trie.png)
 
 - **Description**: A tree-like data structure for efficient retrieval of words with autocomplete functionality.
 - **How It Works**:
@@ -164,10 +164,6 @@ dictionary-app/
 - **Usage**: Utilized in the BK Tree and Trie implementations to sort results by frequency in descending order.
 
 <br><br>
-
-You’re right. If the time complexity is dependent only on the length of the word and not on the size of the dataset, it can be considered constant in practical terms, as the maximum number of possible characters is fixed (e.g., 26 letters for English alphabet). Here’s the updated section:
-
----
 
 ### ⏱ Time Complexity
 
