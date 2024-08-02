@@ -22,6 +22,7 @@ public class DictionaryService {
     private Trie trie;        // Trie structure for prefix-based searches
     private BKTree bkTree;    // BK-Tree structure for approximate searches
     private List<Word> words; // List of words loaded from the dictionary
+    private QueryHistory queryHistory;
 
     /**
      * Initializes the DictionaryService by loading the dictionary file,
@@ -35,6 +36,7 @@ public class DictionaryService {
             trie = new Trie(words);         // Initialize Trie with the loaded words
             bkTree = new BKTree(words.get(0)); // Initialize BK-Tree with the first word as the root
             insertWordsIntoBKTree();         // Insert all words into the BK-Tree
+            queryHistory = new QueryHistory(5); // Initialize the LRU cache for query history
         } catch (IOException e) {
             e.printStackTrace(); // Handle IOException during dictionary loading
         }
@@ -57,14 +59,33 @@ public class DictionaryService {
      * @return A SearchResult containing exact matches and suggestions.
      */
     public SearchResult searchWords(String prefix) {
-        List<Word> prefixMatches = trie.startsWith(prefix); // Find words that start with the prefix
+        SearchResult cachedResult = queryHistory.getResult(prefix);
+        if (cachedResult != null) {
+            return cachedResult; // Return cached result if available
+        }
+
+        List<Word> prefixMatches = trie.startsWith(prefix);
         List<Word> suggestions = new ArrayList<>();
 
         if (prefixMatches.isEmpty()) {
-            // Find similar words using BK-Tree if no prefix matches are found
-            suggestions.addAll(bkTree.search(prefix, 2)); // Use a distance threshold of 2 for similarity
+            suggestions.addAll(bkTree.search(prefix, 2));
         }
 
-        return new SearchResult(prefixMatches, suggestions); // Return the results
+        SearchResult result = new SearchResult(prefixMatches, suggestions);
+        queryHistory.addQuery(prefix, result); // Cache the result
+        return result;
+    }
+
+    /**
+     * Retrieves the list of queries from the LRU cache.
+     *
+     * @return A list of recent queries.
+     */
+    public List<String> getQueryHistory() {
+        return queryHistory.getHistory(); // Retrieve the query history from the LRU cache
+    }
+
+    public SearchResult getCachedResult(String query) {
+        return queryHistory.getResult(query);
     }
 }
