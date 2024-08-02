@@ -47,6 +47,14 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
 
 <br>
 
+### 📂 Running the Project from File Explorer
+
+1. **Right-Click and Run on Windows**:
+   - Navigate to the `scripts/` directory within the project.
+   - Right-click on `run-dictionary-app.bat` and select "Run as administrator" to start the application.
+
+<br>
+
 ### 🏗 Building and Running
 
 1. **Clone the repository**:
