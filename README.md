@@ -162,3 +162,27 @@ dictionary-app/
   - Elements are rearranged so that elements greater than the pivot are on one side, and elements less than the pivot are on the other side.
   - Recursively applies the same process to sublists.
 - **Usage**: Utilized in the BK Tree and Trie implementations to sort results by frequency in descending order.
+
+<br><br>
+
+You’re right. If the time complexity is dependent only on the length of the word and not on the size of the dataset, it can be considered constant in practical terms, as the maximum number of possible characters is fixed (e.g., 26 letters for English alphabet). Here’s the updated section:
+
+---
+
+### ⏱ Time Complexity
+
+#### **Trie**
+- **Insertion/Search/Prefix Search**: O(L) — Linear time complexity based on the length of the word, effectively constant time due to the fixed number of possible characters (26 for English alphabet).
+
+#### **BK Tree**
+- **Insertion/Search**: O(N * D) — Linear time complexity with respect to the number of entries (N) and average distance computation time (D).
+
+#### **Levenshtein Distance**
+- **Computation**: O(m * n) — Linear time complexity relative to the length of the words being compared.
+
+#### **QuickSort**
+- **Average Case**: O(n log n) — Efficient linearithmic time complexity for sorting elements.
+- **Worst Case**: O(n^2) — Quadratic time complexity in cases of poor pivot selection.
+
+#### **LRU Cache**
+- **Insertion/Deletion/Lookup**: O(1) — Constant time complexity using HashMap and LinkedList.
