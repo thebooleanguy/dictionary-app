@@ -204,3 +204,89 @@ h1.text-center {
 [data-theme="dark"] #theme-toggle-button {
     background: var(--primary-color);
 }
+
+/* History Menu Button Styling */
+.history-menu-button {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 1000;
+}
+
+#history-menu-button {
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#history-menu-button:hover {
+    background: #5a54f2;
+    transform: rotate(20deg);
+}
+
+#history-menu-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.5);
+}
+
+/* History Menu Styling */
+.history-menu {
+    position: fixed;
+    left: 1rem;
+    top: 4rem;
+    background: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    width: 250px;
+    transition: opacity 0.3s;
+}
+
+/* History Menu Header */
+.history-menu h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* History Menu Items */
+.history-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-menu li {
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    background: var(--item-background);
+    transition: background 0.3s;
+    list-style-type: none;
+}
+
+.history-menu li:hover {
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
+.history-menu li:last-child {
+    margin-bottom: 0;
+}
+

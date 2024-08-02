@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cached Result</title>
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="/css/pico.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/css/all.min.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="pico-background-light pico-text-dark">
+<main class="container card">
+    <h1 class="text-center">Cached Result</h1>
+
+    <!-- Display Exact Matches -->
+    <div th:if="${#lists.size(result.suggestions) == 0}">
+        <h2>Prefix Matches</h2>
+        <ul>
+            <th:block th:each="match : ${result.exactMatches}">
+                <li class="result-item">
+                    <strong th:text="${match.word}"></strong>
+                    (<span th:text="${match.partOfSpeech}"></span>):
+                    <p th:text="${match.definition}"></p>
+                    <em>Example: <span th:text="${match.sentence}"></span></em>
+                    <small>Frequency: <span th:text="${match.frequency}"></span></small>
+                </li>
+            </th:block>
+        </ul>
+    </div>
+
+    <!-- Display Suggestions if no prefix matches-->
+    <div th:if="${#lists.size(result.exactMatches) == 0}">
+        <h2>Suggestions</h2>
+        <ul>
+            <th:block th:each="suggestion : ${result.suggestions}">
+                <li class="result-item">
+                    <strong th:text="${suggestion.word}"></strong>
+                    (<span th:text="${suggestion.partOfSpeech}"></span>):
+                    <p th:text="${suggestion.definition}"></p>
+                    <em>Example: <span th:text="${suggestion.sentence}"></span></em>
+                    <small>Frequency: <span th:text="${suggestion.frequency}"></span></small>
+                </li>
+            </th:block>
+        </ul>
+    </div>
+
+    <!-- Return to Search -->
+    <div class="text-center">
+        <a href="/" class="secondary">Back to Search</a>
+    </div>
+
+    <!-- History Menu Button -->
+    <div class="history-menu-button">
+        <button id="history-menu-button" class="secondary">
+            <i class="fas fa-history"></i>
+        </button>
+    </div>
+
+    <!-- History Menu -->
+    <div id="history-menu" class="history-menu">
+        <h3>Search History</h3>
+        <ul id="history-list">
+            <!-- History items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-button" class="secondary">
+            <i id="theme-icon" class="fas fa-sun"></i>
+        </button>
+    </div>
+</main>
+
+<!-- JavaScript -->
+<script src="/js/theme-switcher.js"></script>
+<script src="/js/history-menu.js"></script>
+</body>
+</html>
