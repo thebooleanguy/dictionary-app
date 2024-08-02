@@ -78,7 +78,7 @@ public class BKTree {
         search(root, word, maxDistance, results);
 
         // Sort results by frequency in descending order
-        QuickSort.quickSort(results);
+        QuickSort.quickSort(results, false);
         return results;
     }
 
