@@ -15,9 +15,14 @@
 <main class="container card">
     <h1 class="text-center">Cached Result</h1>
 
+    <!-- Return to Search -->
+    <div class="text-center home-container">
+        <a href="/" class="secondary"> <i class="fas fa-home"></i> Back to Search</a>
+    </div>
+
     <!-- Display Exact Matches -->
     <div th:if="${#lists.size(result.suggestions) == 0}">
-        <h2>Prefix Matches</h2>
+        <h2>Prefix Matches:</h2>
         <ul>
             <th:block th:each="match : ${result.exactMatches}">
                 <li class="result-item">
@@ -33,7 +38,7 @@
 
     <!-- Display Suggestions if no prefix matches-->
     <div th:if="${#lists.size(result.exactMatches) == 0}">
-        <h2>Suggestions</h2>
+        <h2>Suggestions:</h2>
         <ul>
             <th:block th:each="suggestion : ${result.suggestions}">
                 <li class="result-item">
@@ -45,11 +50,6 @@
                 </li>
             </th:block>
         </ul>
-    </div>
-
-    <!-- Return to Search -->
-    <div class="text-center">
-        <a href="/" class="secondary"> <i class="fas fa-home"></i> Back to Search</a>
     </div>
 
     <!-- History Menu Button -->

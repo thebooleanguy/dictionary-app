@@ -290,3 +290,8 @@ h1.text-center {
     margin-bottom: 0;
 }
 
+/* Container Styling */
+.home-container {
+   margin: 20px;
+}
+
