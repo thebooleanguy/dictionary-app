@@ -2,7 +2,6 @@ package com.thebooleanguy.dictionary.service;
 
 import com.thebooleanguy.dictionary.model.SearchResult;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
