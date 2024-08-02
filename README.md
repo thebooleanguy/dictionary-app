@@ -1,7 +1,3 @@
-Here's the updated README with the LRU Cache section integrated into the relevant parts:
-
----
-
 # 🌟 Dictionary Web App
 
 A simple yet powerful dictionary web application with autocomplete and spell-checking features, leveraging advanced data structures and algorithms. Built using Java and Spring Boot for a University DSA Project. Still a work in progress!
