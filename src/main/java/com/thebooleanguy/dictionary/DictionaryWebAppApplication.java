@@ -51,12 +51,13 @@ public class DictionaryWebAppApplication {
 				}
 			}
 		}
-
-		// Fallback to xdg-open if Desktop API fails
-		try {
-			Runtime.getRuntime().exec(new String[]{"xdg-open", url});
-		} catch (IOException e) {
-			System.err.println("Failed to open browser using xdg-open: " + e.getMessage());
+		else {
+			// Fallback to xdg-open if Desktop API fails
+			try {
+				Runtime.getRuntime().exec(new String[]{"xdg-open", url});
+			} catch (IOException e) {
+				System.err.println("Failed to open browser using xdg-open: " + e.getMessage());
+			}
 		}
 	}
 

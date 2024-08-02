@@ -207,7 +207,9 @@ public class DictionaryCLI {
         } else {
             System.out.println(GREEN + "\nCached Results for \"" + query + "\":" + RESET);
             displayWords(cachedResult.getExactMatches());
-            displayWords(cachedResult.getSuggestions());
+            if (!cachedResult.getSuggestions().isEmpty()) {
+                displayWords(cachedResult.getSuggestions());
+            }
         }
         promptOptions();
     }
