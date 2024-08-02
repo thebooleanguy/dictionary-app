@@ -106,14 +106,23 @@ public class Trie {
     public List<Word> startsWith(String prefix) {
         TrieNode res = getLast(prefix);
         List<Word> words = new java.util.ArrayList<>();
+
         if (res != null) {
             collectAllWords(res, words);
         }
 
+        // If the prefix itself is a word, skip the first element, then sort by frequency in descending order
+        if (search(prefix) != null) {
+                QuickSort.quickSort(words, true);
+                return words;
+        }
+
         // Sort words by frequency in descending order
-        QuickSort.quickSort(words);
+        QuickSort.quickSort(words,false);
         return words;
     }
+
+
 
     /**
      * Helper method to collect all words under a given Trie node.
