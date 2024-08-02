@@ -1,3 +1,3 @@
 @echo off
 cd /d "%~dp0"
-java -jar dictionary-app-web.jar
+java -jar ../target/dictionary-app-web.jar
