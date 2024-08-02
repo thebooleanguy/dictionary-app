@@ -7,6 +7,18 @@
     --error-color: #ff4d4d;
 }
 
+/* Dark Mode Colors */
+[data-theme="dark"] {
+    --primary-color: #6c63ff;
+    --secondary-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --error-color: #ff4d4d;
+
+    --card-background: #2d2d2d;
+    --item-background: #3a3a3a;
+}
+
 /* Global Styling */
 body {
     font-family: Arial, sans-serif;
@@ -14,6 +26,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 /* Container Styling */
@@ -21,7 +34,7 @@ body {
     max-width: 800px; /* Default max-width for more spacious layout */
     margin: 2rem auto;
     padding: 2rem;
-    background: white;
+    background: white; /* Explicitly set to white for light mode */
     border-radius: 1rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -50,6 +63,8 @@ h1.text-center {
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     font-size: 1.1rem; /* Slightly larger font size */
+    background: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .form button {
@@ -78,7 +93,7 @@ h1.text-center {
     padding: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
-    background: white;
+    background: var(--item-background);
 }
 
 .result-item strong {
@@ -142,4 +157,50 @@ h1.text-center {
     .form input[type="text"], .form button {
         font-size: 0.9rem;
     }
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
+
+#theme-toggle-button {
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%; /* Make it a perfect circle */
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle-button:hover {
+    background: #5a54f2;
+    transform: rotate(20deg);
+}
+
+#theme-toggle-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.5);
+}
+
+/* Dark Mode Specific Styles */
+[data-theme="dark"] .container {
+    background: var(--card-background);
+}
+
+[data-theme="dark"] .no-results, [data-theme="dark"] .no-suggestions {
+    background: var(--item-background);
+}
+
+[data-theme="dark"] #theme-toggle-button {
+    background: var(--primary-color);
 }
