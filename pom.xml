@@ -53,7 +53,7 @@
 				</executions>
 				<configuration>
 					<mainClass>com.thebooleanguy.dictionary.DictionaryWebAppApplication</mainClass>
-					<finalName>dictionary-web</finalName>
+					<finalName>dictionary-app-web</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -72,7 +72,7 @@
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
 							<mainClass>${mainClass}</mainClass>
-							<finalName>dictionary-cli</finalName>
+							<finalName>dictionary-app-cli</finalName>
 						</configuration>
 					</plugin>
 				</plugins>
