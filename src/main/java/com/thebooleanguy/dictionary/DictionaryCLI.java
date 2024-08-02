@@ -88,6 +88,9 @@ public class DictionaryCLI {
         } else if (exactMatches.isEmpty()) {
             System.out.println(YELLOW + "\nNo similar words found." + RESET);
         }
+
+        // Prompt options after displaying results
+        promptOptions();
     }
 
     /**
@@ -109,13 +112,13 @@ public class DictionaryCLI {
 
             // If on the last page, prompt user to quit or search again
             if (end >= totalWords) {
-                System.out.println(CYAN + "\nEnd of list. Press 'q' to quit or 'r' to search again." + RESET);
+                System.out.println(CYAN + "\nEnd of list." + RESET);
                 break;
             }
 
             // Display page navigation options
             System.out.println(CYAN + "\nShowing " + start + " to " + (end - 1) + " of " + totalWords + " entries.");
-            System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, or 'q' to quit." + RESET);
+            System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, 'h' to view history, or 'q' to quit." + RESET);
 
             // Handle user input for page navigation
             String input = scanner.nextLine().trim();
@@ -131,8 +134,12 @@ public class DictionaryCLI {
                 case "a":
                     displayAllWords(words);
                     return;
-                case "q":
+                case "h":
+                    viewHistory();
                     return;
+                case "q":
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println(RED + "Invalid option. Please try again." + RESET);
                     break;
@@ -156,7 +163,81 @@ public class DictionaryCLI {
     }
 
     /**
-     * Starts the CLI and continuously prompts the user to search for words.
+     * Displays the search history stored in the service.
+     */
+    private void viewHistory() {
+        List<String> history = dictionaryService.getQueryHistory();
+        if (history.isEmpty()) {
+            System.out.println(YELLOW + "\nNo search history available." + RESET);
+        } else {
+            System.out.println(GREEN + "\nSearch History:" + RESET);
+            for (int i = 0; i < history.size(); i++) {
+                System.out.println(BLUE + (i + 1) + ". " + history.get(i) + RESET);
+            }
+            System.out.println(CYAN + "\nEnter the number of the query to view cached results, 'r' to return to search, or 'q' to quit." + RESET);
+            String input = scanner.nextLine().trim();
+            try {
+                int index = Integer.parseInt(input) - 1;
+                if (index >= 0 && index < history.size()) {
+                    viewCachedResults(history.get(index));
+                } else {
+                    System.out.println(RED + "Invalid number. Returning to search." + RESET);
+                }
+            } catch (NumberFormatException e) {
+                if (input.equalsIgnoreCase("r")) {
+                    return;
+                } else if (input.equalsIgnoreCase("q")) {
+                    System.exit(0);
+                } else {
+                    System.out.println(RED + "Invalid input. Returning to search." + RESET);
+                }
+            }
+        }
+    }
+
+    /**
+     * Displays the cached search results for a specific query.
+     *
+     * @param query The query to view cached results for.
+     */
+    private void viewCachedResults(String query) {
+        SearchResult cachedResult = dictionaryService.getCachedResult(query);
+        if (cachedResult == null) {
+            System.out.println(YELLOW + "\nNo cached result found for the query \"" + query + "\"." + RESET);
+        } else {
+            System.out.println(GREEN + "\nCached Results for \"" + query + "\":" + RESET);
+            displayWords(cachedResult.getExactMatches());
+            displayWords(cachedResult.getSuggestions());
+        }
+        promptOptions();
+    }
+
+    /**
+     * Prompts the user with options to view history or quit.
+     */
+    private void promptOptions() {
+        System.out.println(CYAN + "\nOptions: [s]earch again, [h]istory, [q]uit" + RESET);
+        String input = scanner.nextLine().trim();
+        switch (input.toLowerCase()) {
+            case "s":
+                search();
+                break;
+            case "h":
+                viewHistory();
+                break;
+            case "q":
+                System.out.println(CYAN + "Exiting the application." + RESET);
+                System.exit(0);
+                break;
+            default:
+                System.out.println(RED + "Invalid option. Please try again." + RESET);
+                promptOptions();
+                break;
+        }
+    }
+
+    /**
+     * Starts the CLI and continuously prompts the user to search for words or view history and cached results.
      */
     public void start() {
         while (true) {
