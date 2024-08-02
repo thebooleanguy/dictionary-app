@@ -118,7 +118,7 @@ public class DictionaryCLI {
 
             // Display page navigation options
             System.out.println(CYAN + "\nShowing " + start + " to " + (end - 1) + " of " + totalWords + " entries.");
-            System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, 'h' to view history, or 'q' to quit." + RESET);
+            System.out.println("Press 'n' for next page, 'p' for previous page, 'a' to view all, 'h' to view history, or 's' to search again." + RESET);
 
             // Handle user input for page navigation
             String input = scanner.nextLine().trim();
@@ -137,8 +137,8 @@ public class DictionaryCLI {
                 case "h":
                     viewHistory();
                     return;
-                case "q":
-                    System.exit(0);
+                case "s":
+                    search();
                     break;
                 default:
                     System.out.println(RED + "Invalid option. Please try again." + RESET);

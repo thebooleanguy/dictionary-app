@@ -2,16 +2,16 @@ package com.thebooleanguy.dictionary.dataStructure.structures;
 
 import com.thebooleanguy.dictionary.model.SearchResult;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * An LRU Cache implementation for storing query history along with results,
- * using a custom HashMap implementation for storage.
+ * using a custom HashMap implementation for storage and a custom linked list for usage order.
  */
 public class LRUCache {
     private final SimpleHashMap cache; // Holds query history and results
-    private final LinkedList<String> usageOrder; // Maintains usage order of queries
+    private final SimpleLinkedList<String> usageOrder; // Maintains usage order of queries
     private final int maxSize; // Maximum size of the cache
 
     /**
@@ -22,7 +22,7 @@ public class LRUCache {
     public LRUCache(int maxSize) {
         this.maxSize = maxSize;
         this.cache = new SimpleHashMap();
-        this.usageOrder = new LinkedList<>();
+        this.usageOrder = new SimpleLinkedList<>();
     }
 
     /**
@@ -48,7 +48,13 @@ public class LRUCache {
      * @return A list of queries in the cache.
      */
     public List<String> getHistory() {
-        return new LinkedList<>(usageOrder);
+        List<String> history = new ArrayList<>();
+        SimpleLinkedList.Node<String> current = usageOrder.getHead();
+        while (current != null) {
+            history.add(current.data);
+            current = current.next;
+        }
+        return history;
     }
 
     /**

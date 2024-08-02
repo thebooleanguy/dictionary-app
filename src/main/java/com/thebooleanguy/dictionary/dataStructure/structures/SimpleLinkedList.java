@@ -11,7 +11,7 @@ public class SimpleLinkedList<T> {
     /**
      * Node class representing an element in the linked list.
      */
-    private static class Node<T> {
+    public static class Node<T> {
         T data;
         Node<T> next;
 
@@ -99,5 +99,14 @@ public class SimpleLinkedList<T> {
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * Returns the head node of the list.
+     *
+     * @return The head node.
+     */
+    public Node<T> getHead() {
+        return head;
     }
 }
