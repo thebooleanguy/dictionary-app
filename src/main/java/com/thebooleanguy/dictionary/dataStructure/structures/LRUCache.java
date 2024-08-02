@@ -2,16 +2,15 @@ package com.thebooleanguy.dictionary.dataStructure.structures;
 
 import com.thebooleanguy.dictionary.model.SearchResult;
 
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.List;
 
 /**
- * An LRU Cache implementation for storing query history along with results.
+ * An LRU Cache implementation for storing query history along with results,
+ * using a custom HashMap implementation for storage.
  */
 public class LRUCache {
-    private final Map<String, SearchResult> cache; // Holds query history and results
+    private final SimpleHashMap cache; // Holds query history and results
     private final LinkedList<String> usageOrder; // Maintains usage order of queries
     private final int maxSize; // Maximum size of the cache
 
@@ -22,7 +21,7 @@ public class LRUCache {
      */
     public LRUCache(int maxSize) {
         this.maxSize = maxSize;
-        this.cache = new HashMap<>();
+        this.cache = new SimpleHashMap();
         this.usageOrder = new LinkedList<>();
     }
 
@@ -33,9 +32,9 @@ public class LRUCache {
      * @param result The result associated with the query.
      */
     public void addQuery(String query, SearchResult result) {
-        if (cache.containsKey(query)) {
+        if (cache.get(query) != null) {
             usageOrder.remove(query);
-        } else if (cache.size() >= maxSize) {
+        } else if (usageOrder.size() >= maxSize) {
             String leastUsed = usageOrder.removeLast();
             cache.remove(leastUsed);
         }
@@ -60,7 +59,7 @@ public class LRUCache {
      * @return The search result associated with the query, or null if not found.
      */
     public SearchResult getResult(String query) {
-        if (!cache.containsKey(query)) {
+        if (cache.get(query) == null) {
             return null;
         }
         usageOrder.remove(query);
