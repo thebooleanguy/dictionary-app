@@ -31,33 +31,35 @@ public class DictionaryWebAppApplication {
 
 	/**
 	 * Opens the default web browser and navigates to the specified URL.
-	 * This method uses the Desktop API to perform the browsing action.
+	 * This method first attempts to use the Desktop API for Windows and macOS.
+	 * If that fails or is not supported, it falls back to using the `xdg-open` command for Linux systems.
 	 *
 	 * @param url The URL to open in the default web browser.
 	 */
 	private static void openBrowser(String url) {
-		// Check if the Desktop API is supported on the current platform
+		// Attempt to use the Desktop API (works on Windows, macOS, and some Linux configurations)
 		if (Desktop.isDesktopSupported()) {
 			Desktop desktop = Desktop.getDesktop();
-
-			// Check if the BROWSE action is supported
 			if (desktop.isSupported(Desktop.Action.BROWSE)) {
 				try {
-					// Open the specified URL in the default web browser
 					desktop.browse(new URI(url));
+					return; // Exit early if successful
 				} catch (IOException | URISyntaxException e) {
-					// Print an error message if the URL cannot be opened
-					System.err.println("Failed to open browser: " + e.getMessage());
+					System.err.println("Failed to open browser using Desktop API: " + e.getMessage());
 				}
 			}
 		}
-		else {
-			// Fallback to xdg-open if Desktop API fails
+
+		// Fallback to using `xdg-open` for Unix-like systems (Linux and macOS)
+		String osName = System.getProperty("os.name").toLowerCase();
+		if (osName.contains("nix") || osName.contains("nux") || osName.contains("mac")) {
 			try {
 				Runtime.getRuntime().exec(new String[]{"xdg-open", url});
 			} catch (IOException e) {
 				System.err.println("Failed to open browser using xdg-open: " + e.getMessage());
 			}
+		} else {
+			System.err.println("Unsupported operating system. Unable to open browser.");
 		}
 	}
 
