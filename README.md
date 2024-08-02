@@ -38,7 +38,7 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
     ```bash
     java -jar dictionary-app-web.jar
     ```
-    Open your browser and navigate to `http://localhost:8080`
+    If it didn't autostart, Open your browser and navigate to `http://localhost:8080`
 
 3. **Run the CLI JAR**:
     ```bash
@@ -59,6 +59,7 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
     ```bash
     ./mvnw spring-boot:run
     ```
+    Or import this directory as a project (from existing sources) in your IDE (Intellij, Netbeans, etc...) with maven as the build tool. And then build.
 
 3. **Access the application**:
     Open your browser and navigate to `http://localhost:8080`
