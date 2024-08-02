@@ -33,6 +33,7 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
     ```bash
     java -jar dictionary-app-web.jar
     ```
+      Open your browser and navigate to `http://localhost:8080`
 
 3. **Run the CLI JAR**:
     ```bash
@@ -61,19 +62,27 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
 dictionary-app/
 ├── src/
 │   └── main/
-│       ├── java/com/thebooleanguy/dictionary/  # Contains the Java source code.
+│       ├── java/com/thebooleanguy/dictionary/     # Contains the Java source code.
+│       │   │ 
 │       │   ├── controller/                    # Spring Boot controllers (e.g., DictionaryController) which handle HTTP requests and responses.
+│       │   │  
 │       │   ├── model/                         # Data models (e.g., Word, SearchResult)
+│       │   │  
 │       │   ├── service/                       # Service layers (e.g., DictionaryService) that handle business logic and interact with data structures.
+│       │   │  
 │       │   ├── util/                          # Utility classes (e.g., DictionaryFileLoader for parsing datasets).
-│       │   ├── DictionaryCLI.java             #  CLI interface independent of Spring Boot.
-│       │   ├── DictionaryWebAppApplication.java # The main class that runs the Spring Boot application.
+│       │   │  
+│       │   ├── DictionaryCLI.java                   #  CLI interface independent of Spring Boot.
+│       │   ├── DictionaryWebAppApplication.java     # The main class that runs the Spring Boot application.
+│       │   │  
 │       │   └── dataStructure/                  # Contains data structures and algorithms.
-│       │       ├── algorithms/                # Algorithms (e.g., QuickSort, LevenshteinDistance)
-│       │       └── structures/                # Data structures (e.g., Trie, BKTree)
+│       │       ├── algorithms/                 # Algorithms (e.g., QuickSort, LevenshteinDistance)
+│       │       └── structures/                 # Data structures (e.g., Trie, BKTree)
+│       │ 
 │       └── resources/                         # Contains application resources.
 │           ├── static/                        # Static resources (e.g., CSS, JS) for styling and scripting.
 │           └── templates/                     # Thymeleaf templates (e.g., index.html) used for rendering web pages dynamically.
+│ 
 ├── .gitignore                                 # Git ignore file
 ├── LICENSE                                    # License file
 ├── pom.xml                                    # Maven project file
