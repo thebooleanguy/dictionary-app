@@ -4,12 +4,14 @@
     <title>Dictionary Search</title>
     <!-- Pico.css -->
     <link rel="stylesheet" href="/css/pico.min.css">
-    <!-- Your custom styles if needed -->
+    <!-- Custom styles -->
     <link rel="stylesheet" href="/css/styles.css">
+    <!-- Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="pico-background-light pico-text-dark">
 <main class="container card">
-    <h1 class="text-center">Dictionary Search</h1>
+    <h1 class="text-center">Dictionary Lookup</h1>
 
     <!-- Display Error Message -->
     <div th:if="${error}" class="notification error">
@@ -20,7 +22,7 @@
     <form action="/search" method="post" class="form">
         <fieldset>
             <legend>Search for Words</legend>
-            <input type="text" name="prefix" placeholder="Enter a prefix" required>
+            <input type="text" name="prefix" placeholder="Enter a prefix" required aria-label="Search prefix">
             <button type="submit" class="primary">Search</button>
         </fieldset>
     </form>
@@ -71,5 +73,7 @@
         <a href="/" class="secondary">Search Again</a>
     </div>
 </main>
+<!-- Javascript -->
+<script src="/js/script.js"></script>
 </body>
 </html>
