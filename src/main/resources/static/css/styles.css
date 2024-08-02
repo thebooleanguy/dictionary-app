@@ -1,19 +1,27 @@
-/* styles.css */
-
 /* Base Colors */
 :root {
     --primary-color: #6c63ff;
     --secondary-color: #f5f5f5;
     --text-color: #333;
     --border-color: #e0e0e0;
+    --error-color: #ff4d4d;
+}
+
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
 }
 
 /* Container Styling */
 .container {
-    max-width: 600px;
-    margin: auto;
+    max-width: 800px; /* Default max-width for more spacious layout */
+    margin: 2rem auto;
     padding: 2rem;
-    background: var(--secondary-color);
+    background: white;
     border-radius: 1rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -22,6 +30,7 @@
 h1.text-center {
     text-align: center;
     color: var(--primary-color);
+    margin-bottom: 2rem; /* Increased margin for more spacing */
 }
 
 /* Search Form Styling */
@@ -36,23 +45,26 @@ h1.text-center {
 
 .form input[type="text"] {
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem; /* Increased padding for better touch */
     margin-bottom: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
+    font-size: 1.1rem; /* Slightly larger font size */
 }
 
 .form button {
-    padding: 0.75rem;
+    padding: 1rem;
     background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger font size */
+    transition: background 0.3s;
 }
 
 .form button:hover {
-    background: darken(var(--primary-color), 10%);
+    background: #5a54f2;
 }
 
 /* Results Container */
@@ -76,22 +88,58 @@ h1.text-center {
 /* No Results/Suggestions Styling */
 .no-results, .no-suggestions {
     padding: 1rem;
-    border: 0px solid var(--border-color);
+    border: 1px solid var(--border-color);
+    margin: 1rem;
     border-radius: 0.5rem;
     background: var(--secondary-color);
+}
+
+/* Error Notification Styling */
+.notification.error {
+    background: var(--error-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Search Again Link Styling */
 .search-again a {
     display: inline-block;
     margin-top: 2rem;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem; /* Increased padding for better touch */
     background: var(--primary-color);
     color: white;
     border-radius: 0.5rem;
     text-decoration: none;
+    transition: background 0.3s;
 }
 
 .search-again a:hover {
-    background: darken(var(--primary-color), 10%);
+    background: #5a54f2;
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px; /* Wider container for large screens */
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 768px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .form input[type="text"], .form button {
+        font-size: 0.9rem;
+    }
 }
