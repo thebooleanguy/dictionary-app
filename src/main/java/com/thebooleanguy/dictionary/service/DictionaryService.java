@@ -41,14 +41,14 @@ public class DictionaryService {
     }
 
     public SearchResult searchWords(String prefix) {
-        List<Word> exactMatches = trie.startsWith(prefix);
+        List<Word> prefixMatches = trie.startsWith(prefix);
         List<Word> suggestions = new ArrayList<>();
 
-        if (exactMatches.isEmpty()) {
+        if (prefixMatches.isEmpty()) {
             suggestions.addAll(bkTree.search(prefix, 2)); // Use BKTree to find similar words
         }
 
-        return new SearchResult(exactMatches, suggestions);
+        return new SearchResult(prefixMatches, suggestions);
     }
 }
 

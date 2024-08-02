@@ -4,6 +4,8 @@
     <title>Dictionary Search</title>
     <!-- Pico.css -->
     <link rel="stylesheet" href="/css/pico.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/css/all.min.css">
     <!-- Custom styles -->
     <link rel="stylesheet" href="/css/styles.css">
     <!-- Responsive meta tag -->
@@ -72,8 +74,16 @@
     <div th:if="${prefix}" class="search-again text-center">
         <a href="/" class="secondary">Search Again</a>
     </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-button" class="secondary">
+            <i id="theme-icon" class="fas fa-sun"></i>
+        </button>
+    </div>
+
 </main>
 <!-- Javascript -->
-<script src="/js/script.js"></script>
+<script src="/js/theme-switcher.js"></script>
 </body>
 </html>

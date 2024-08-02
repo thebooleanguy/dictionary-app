@@ -33,6 +33,10 @@ const themeSwitcher = {
   initToggleButton() {
     const button = document.querySelector(this.buttonTarget);
     const icon = document.querySelector(this.iconTarget);
+
+    // Set the initial icon based on the current theme
+    icon.className = this.scheme === "light" ? "fas fa-sun" : "fas fa-moon";
+
     button.addEventListener("click", () => {
       this.scheme = this.scheme === "light" ? "dark" : "light";
       icon.className = this.scheme === "light" ? "fas fa-sun" : "fas fa-moon";
