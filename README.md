@@ -25,8 +25,8 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
 
 ### Prerequisites
 
-- Java 21 (may work with other versions too)
-- Maven (only for building)
+- Java 21 (should work with other versions too)
+- Maven (only if building)
 
 ### 🚀 Running Without Building
 
@@ -85,6 +85,7 @@ dictionary-app/
 │       └── resources/                                # Contains application resources.
 │           ├── static/                               # Static resources (e.g., CSS, JS) for styling and scripting.
 │           └── templates/                            # Thymeleaf templates (e.g., index.html, cachedView.html) used for rendering web pages dynamically.
+├── scripts                                           # Contains miscellaneous scripts (e.g., python script used to generate word dataset, wrapper scripts to launch .jar)
 ├── .gitignore                                        # Git ignore file
 ├── LICENSE                                           # License file
 ├── pom.xml                                           # Maven project file
