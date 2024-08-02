@@ -37,7 +37,7 @@ public class DictionaryWebAppApplication {
 	 * @param url The URL to open in the default web browser.
 	 */
 	private static void openBrowser(String url) {
-		// Attempt to use the Desktop API (works on Windows, macOS, and some Linux configurations)
+		// Attempt to use the Desktop API (works on Windows and macOS)
 		if (Desktop.isDesktopSupported()) {
 			Desktop desktop = Desktop.getDesktop();
 			if (desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -62,5 +62,4 @@ public class DictionaryWebAppApplication {
 			System.err.println("Unsupported operating system. Unable to open browser.");
 		}
 	}
-
 }
