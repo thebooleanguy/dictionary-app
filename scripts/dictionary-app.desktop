@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Dictionary Web App
+Comment=Run the Dictionary Web App
+Exec=/path/to/run-dictionary-app.sh
+Icon=/path/to/icon.png
+Terminal=false
+Type=Application
+Categories=Utility;
