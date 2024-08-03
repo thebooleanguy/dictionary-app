@@ -27,7 +27,7 @@ public class SimpleHashMap {
      * @return The index for the key.
      */
     private int hash(String key) {
-        return key.hashCode() % table.length;
+        return Math.abs(key.hashCode() % table.length);
     }
 
     /**
