@@ -1,22 +1,21 @@
 package com.thebooleanguy.dictionary.dataStructure.structures;
 
 import com.thebooleanguy.dictionary.model.SearchResult;
-import java.util.LinkedList;
 
 /**
- * A basic implementation of a HashMap.
+ * A basic implementation of a HashMap using SimpleLinkedList.
  */
 public class SimpleHashMap {
     private static final int INITIAL_CAPACITY = 16;
-    private LinkedList<Entry>[] table;
+    private SimpleLinkedList<Entry>[] table;
 
     /**
      * Constructs a SimpleHashMap instance with the default capacity.
      */
     public SimpleHashMap() {
-        this.table = new LinkedList[INITIAL_CAPACITY];
+        this.table = new SimpleLinkedList[INITIAL_CAPACITY];
         for (int i = 0; i < table.length; i++) {
-            table[i] = new LinkedList<>();
+            table[i] = new SimpleLinkedList<>();
         }
     }
 
@@ -38,14 +37,14 @@ public class SimpleHashMap {
      */
     public void put(String key, SearchResult value) {
         int index = hash(key);
-        LinkedList<Entry> bucket = table[index];
-        for (Entry entry : bucket) {
-            if (entry.key.equals(key)) {
-                entry.value = value;
+        SimpleLinkedList<Entry> bucket = table[index];
+        for (SimpleLinkedList.Node<Entry> node = bucket.getHead(); node != null; node = node.next) {
+            if (node.data.key.equals(key)) {
+                node.data.value = value;
                 return;
             }
         }
-        bucket.add(new Entry(key, value));
+        bucket.addFirst(new Entry(key, value));
     }
 
     /**
@@ -56,10 +55,10 @@ public class SimpleHashMap {
      */
     public SearchResult get(String key) {
         int index = hash(key);
-        LinkedList<Entry> bucket = table[index];
-        for (Entry entry : bucket) {
-            if (entry.key.equals(key)) {
-                return entry.value;
+        SimpleLinkedList<Entry> bucket = table[index];
+        for (SimpleLinkedList.Node<Entry> node = bucket.getHead(); node != null; node = node.next) {
+            if (node.data.key.equals(key)) {
+                return node.data.value;
             }
         }
         return null;
@@ -72,8 +71,13 @@ public class SimpleHashMap {
      */
     public void remove(String key) {
         int index = hash(key);
-        LinkedList<Entry> bucket = table[index];
-        bucket.removeIf(entry -> entry.key.equals(key));
+        SimpleLinkedList<Entry> bucket = table[index];
+        for (SimpleLinkedList.Node<Entry> node = bucket.getHead(); node != null; node = node.next) {
+            if (node.data.key.equals(key)) {
+                bucket.remove(node.data);
+                return;
+            }
+        }
     }
 
     /**
