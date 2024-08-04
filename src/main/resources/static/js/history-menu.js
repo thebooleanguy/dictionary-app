@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyMenuButton = document.getElementById('history-menu-button');
     const historyMenu = document.getElementById('history-menu');
     const historyList = document.getElementById('history-list');
+    const searchForm = document.querySelector('form');
+    const searchInput = searchForm.querySelector('input[name="prefix"]');
 
     let menuTimeout;
 
@@ -67,8 +69,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch query history on page load
     fetchQueryHistory();
 
-    // Submit form traditionally, as search history is handled by the backend
-    document.querySelector('form').addEventListener('submit', (event) => {
-        // Form will be submitted traditionally
+    // Intercept form submission to check LRU cache first
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const query = searchInput.value;
+
+        // Check if the query is in the cache
+        fetch(`/checkCache?query=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.found) {
+                    // Redirect to cached result if found
+                    const url = `/cachedResult/${encodeURIComponent(query)}`;
+                    console.log('Redirecting to:', url); // Debugging line
+                    window.location.href = url;
+                } else {
+                    // Submit the form normally if not found
+                    searchForm.submit();
+                }
+            })
+            .catch(error => {
+                console.error('Error checking cache:', error);
+                // Submit the form normally in case of an error
+                searchForm.submit();
+            });
     });
 });

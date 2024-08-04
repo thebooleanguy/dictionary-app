@@ -59,6 +59,13 @@ public class DictionaryController {
             return "redirect:/"; // Redirect to the root URL if input is invalid
         }
 
+        // Check if the result is already cached
+        SearchResult cachedResult = dictionaryService.getCachedResult(prefix);
+        if (cachedResult != null) {
+            model.addAttribute("result", cachedResult);
+            return "cachedResultView"; // Return the cached result view if available
+        }
+
         // Perform the search operation using the DictionaryService
         SearchResult result = dictionaryService.searchWords(prefix);
 
