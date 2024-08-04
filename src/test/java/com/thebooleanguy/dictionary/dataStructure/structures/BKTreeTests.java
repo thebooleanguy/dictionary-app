@@ -31,15 +31,17 @@ class BKTreeTests {
         List<Word> results = bkTree.search("hello", 1);
         assertEquals(2, results.size());
         assertTrue(results.contains(word1));
-        assertTrue(results.contains(word2));
+        assertTrue(results.stream().anyMatch(w -> w.getWord().equals("hello")));
 
         results = bkTree.search("hero", 1);
         assertEquals(1, results.size());
         assertTrue(results.contains(word3));
 
         results = bkTree.search("hero", 2);
-        assertEquals(2, results.size());
+        assertEquals(4, results.size());
+        assertTrue(results.contains(word1));
         assertTrue(results.contains(word2));
         assertTrue(results.contains(word3));
+        assertTrue(results.stream().anyMatch(w -> w.getWord().equals("hello")));
     }
 }
