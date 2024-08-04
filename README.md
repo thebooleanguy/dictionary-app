@@ -234,3 +234,15 @@ dictionary-app/
 
 #### **LRU Cache**
 - **Insertion/Deletion/Lookup**: O(1) — Constant time complexity using HashMap and LinkedList.
+
+Yes, adding a contributions section is a great idea! It acknowledges the teamwork involved in the project and highlights each member's role. Here’s a suggested format for your README:
+
+---
+
+## 🤝 Contributions
+
+This project is a collaborative effort with contributions from the following team members:
+
+- **[E.A.S.V. Edirisinghe](https://github.com/VIMUKTHIED007)** (COHNDSE241F-051)
+- **[W.A.T.S. Abeyrathna](https://github.com/thebooleanguy)** (COHNDSE241F-064)
+- **[H.M.A.K. Chandrasiri](https://github.com/awshadi)** (COHNDSE241F-093)
