@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyMenuButton = document.getElementById('history-menu-button');
     const historyMenu = document.getElementById('history-menu');
     const historyList = document.getElementById('history-list');
-    const searchForm = document.querySelector('form');
-    const searchInput = searchForm.querySelector('input[name="prefix"]');
 
     let menuTimeout;
 
@@ -47,51 +45,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Display or hide the history menu on button click
-    historyMenuButton.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent click from closing the menu
-        showHistoryMenu();
-    });
+    if (historyMenuButton && historyMenu) {
+        historyMenuButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent click from closing the menu
+            showHistoryMenu();
+        });
 
-    // Handle mouse enter and leave events for the history menu and button
-    historyMenuButton.addEventListener('mouseenter', showHistoryMenu);
-    historyMenu.addEventListener('mouseenter', showHistoryMenu);
+        // Handle mouse enter and leave events for the history menu and button
+        historyMenuButton.addEventListener('mouseenter', showHistoryMenu);
+        historyMenu.addEventListener('mouseenter', showHistoryMenu);
 
-    historyMenuButton.addEventListener('mouseleave', hideHistoryMenu);
-    historyMenu.addEventListener('mouseleave', hideHistoryMenu);
+        historyMenuButton.addEventListener('mouseleave', hideHistoryMenu);
+        historyMenu.addEventListener('mouseleave', hideHistoryMenu);
 
-    // Close menu if clicked outside
-    document.addEventListener('click', (event) => {
-        if (!historyMenu.contains(event.target) && !historyMenuButton.contains(event.target)) {
-            hideHistoryMenu();
-        }
-    });
+        // Close menu if clicked outside
+        document.addEventListener('click', (event) => {
+            if (!historyMenu.contains(event.target) && !historyMenuButton.contains(event.target)) {
+                hideHistoryMenu();
+            }
+        });
 
-    // Fetch query history on page load
-    fetchQueryHistory();
+        // Fetch query history on page load
+        fetchQueryHistory();
+    }
 
-    // Intercept form submission to check LRU cache first
-    searchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const query = searchInput.value;
+    // Only add this part if searchForm exists
+    const searchForm = document.querySelector('form');
+    if (searchForm) {
+        const searchInput = searchForm.querySelector('input[name="prefix"]');
 
-        // Check if the query is in the cache
-        fetch(`/checkCache?query=${encodeURIComponent(query)}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.found) {
-                    // Redirect to cached result if found
-                    const url = `/cachedResult/${encodeURIComponent(query)}`;
-                    console.log('Redirecting to:', url); // Debugging line
-                    window.location.href = url;
-                } else {
-                    // Submit the form normally if not found
+        // Intercept form submission to check LRU cache first
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const query = searchInput.value;
+
+            // Check if the query is in the cache
+            fetch(`/checkCache?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.found) {
+                        // Redirect to cached result if found
+                        const url = `/cachedResult/${encodeURIComponent(query)}`;
+                        console.log('Redirecting to:', url); // Debugging line
+                        window.location.href = url;
+                    } else {
+                        // Submit the form normally if not found
+                        searchForm.submit();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking cache:', error);
+                    // Submit the form normally in case of an error
                     searchForm.submit();
-                }
-            })
-            .catch(error => {
-                console.error('Error checking cache:', error);
-                // Submit the form normally in case of an error
-                searchForm.submit();
-            });
-    });
+                });
+        });
+    }
 });
