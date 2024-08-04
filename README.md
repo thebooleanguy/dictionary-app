@@ -1,6 +1,6 @@
 # 🌟 Dictionary Web App
 
-A simple yet powerful dictionary web application with autocomplete and spell-checking features, leveraging advanced data structures and algorithms. Built using Java and Spring Boot for a University DSA Project. Still a work in progress!
+A simple yet powerful dictionary web application with autocomplete and spell-checking features, leveraging advanced data structures and algorithms. Built using Java and Spring Boot for a University DSA Project.
 
 <img src="https://cdn.britannica.com/97/118097-050-5B2CF2EA/English-dictionary.jpg" alt="Dictionary" width="800" />
 
@@ -11,13 +11,12 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
 - **Efficient Sorting**: Words are sorted using a custom QuickSort algorithm.
 - **Query History Management**: Utilizes an LRU Cache to efficiently manage and store recent search queries.
 - **Offline Support**: Works seamlessly without an internet connection.
-- **Modern UI**: Beautiful web interface using Thymeleaf for dynamic content rendering.
+- **Modern UI**: Beautiful web interface using custom CSS and JavaScript to ensure a polished and engaging user experience.
 
 ## 🛠 Tech Stack
 
 - **Backend**: Java, Spring Boot
-- **Frontend**: HTML, CSS, JavaScript
-- **Template Engine**: Thymeleaf
+- **Frontend**: HTML (with Thymeleaf), CSS, JavaScript
 
 <br><br>
 
@@ -35,6 +34,7 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
    - `dictionary-app-cli.jar` for the CLI interface
 
 2. **Run the web application JAR**:
+    Navigate to the directory containing the .jar files.
     ```bash
     java -jar dictionary-app-web.jar
     ```
@@ -47,11 +47,23 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
 
 <br>
 
-### 📂 Running the Project from File Explorer
+## 📂 Running the Project from File Explorer
 
-1. **Right-Click and Run on Windows**:
-   - Navigate to the `scripts/` directory within the project.
-   - Right-click on `run-dictionary-app.bat` and select "Run as administrator" to start the application.
+1. **Download Files from Releases**:
+   - Go to the [releases page](https://github.com/thebooleanguy/dictionary-app/releases).
+   - Download the following files:
+     - `dictionary-app-web.jar` (for the web application)
+     - `run-dictionary-app.bat` (batch script to start the web application)
+
+2. **Prepare the Directory**:
+   - Create a new directory on your system or use an existing one.
+   - Move both downloaded files (`dictionary-app-web.jar` and `run-dictionary-app.bat`) into this directory.
+
+3. **Run the Web Application**:
+   - Double-click on `run-dictionary-app.bat` to start the web application. This script will automatically execute the JAR file and open the application.
+
+4. **Access the Application**:
+   - Open your browser and navigate to `http://localhost:8080` to start using the web application (if it didn't autostart).
 
 <br>
 
@@ -63,14 +75,44 @@ A simple yet powerful dictionary web application with autocomplete and spell-che
     cd dictionary-app
     ```
 
+#### 🛠 From CLI
+
 2. **Build and run the application**:
     ```bash
     ./mvnw spring-boot:run
     ```
-    Or import this directory as a project (from existing sources) in your IDE (Intellij, Netbeans, etc...) with maven as the build tool. And then build.
 
 3. **Access the application**:
-    Open your browser and navigate to `http://localhost:8080`
+    Open your browser and navigate to `http://localhost:8080` if it didn't autostart.
+
+#### 🛠 Importing and Building the Project in an IDE
+
+2. **Import Project into Your IDE**:
+   - **IntelliJ IDEA**:
+     1. Open IntelliJ IDEA.
+     2. Select `File` > `Open...`.
+     3. Navigate to the directory where you cloned the repository and select it.
+     4. IntelliJ IDEA will recognize it as a Maven project and automatically import it.
+
+   - **NetBeans**:
+     1. Open NetBeans.
+     2. Select `File` > `Open Project...`.
+     3. Navigate to the directory where you cloned the repository and select the `dictionary-app` folder.
+     4. NetBeans will detect the project as a Maven project and import it.
+
+3. **Build the Project**:
+   - **IntelliJ IDEA**:
+     1. Go to `Build` > `Build Project` or use the shortcut `Ctrl + F9`.
+
+   - **NetBeans**:
+     1. Right-click on the project in the `Projects` window and select `Build`.
+
+4. **Run the Application**:
+   - **IntelliJ IDEA**:
+     1. Click the green `Run` button or right-click on the main application class (e.g., `DictionaryWebAppApplication.java`) and select `Run 'DictionaryWebAppApplication'`.
+
+   - **NetBeans**:
+     1. Right-click on the project in the `Projects` window and select `Run`.
 
 <br>
 
