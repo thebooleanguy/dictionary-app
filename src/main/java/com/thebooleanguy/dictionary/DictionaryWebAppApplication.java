@@ -8,14 +8,27 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+/**
+ * Entry point for the Dictionary Web Application.
+ */
 @SpringBootApplication
 public class DictionaryWebAppApplication {
 
+	/**
+	 * Main method to launch the Spring Boot application and open the default web browser.
+	 *
+	 * @param args Command-line arguments.
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(DictionaryWebAppApplication.class, args);
 		openBrowser("http://localhost:8080");
 	}
 
+	/**
+	 * Opens the default web browser to the specified URL.
+	 *
+	 * @param url The URL to open in the browser.
+	 */
 	private static void openBrowser(String url) {
 		String osName = System.getProperty("os.name").toLowerCase();
 
