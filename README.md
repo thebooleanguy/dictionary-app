@@ -93,7 +93,7 @@ dictionary-app/
 │       └── resources/                                # Contains application resources.
 │       │   ├── static/                               # Static resources (e.g., CSS, JS) for styling and scripting.
 │       │   └── templates/                            # Thymeleaf templates (e.g., index.html, cachedView.html) used for rendering web pages dynamically.
-│       └── test                                      # Contains tests for the implemented data structures and algorithms
+│       └── test/                                     # Contains tests for the implemented data structures and algorithms
 ├── scripts                                           # Contains miscellaneous scripts (e.g., python script used to generate word dataset, wrapper scripts to launch .jar)
 ├── .gitignore                                        # Git ignore file
 ├── LICENSE                                           # License file
