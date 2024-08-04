@@ -235,8 +235,6 @@ dictionary-app/
 #### **LRU Cache**
 - **Insertion/Deletion/Lookup**: O(1) — Constant time complexity using HashMap and LinkedList.
 
-Yes, adding a contributions section is a great idea! It acknowledges the teamwork involved in the project and highlights each member's role. Here’s a suggested format for your README:
-
 ---
 
 ## 🤝 Contributions
