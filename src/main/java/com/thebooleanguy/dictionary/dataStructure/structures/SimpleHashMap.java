@@ -36,16 +36,25 @@ public class SimpleHashMap {
      * @param value The value.
      */
     public void put(String key, SearchResult value) {
+        // Calculate the index in the hash table using a hash function
         int index = hash(key);
+
+        // Retrieve the bucket (a linked list) at the calculated index
         SimpleLinkedList<Entry> bucket = table[index];
+
+        // Traverse through the nodes in the linked list (bucket)
         for (SimpleLinkedList.Node<Entry> node = bucket.getHead(); node != null; node = node.next) {
+            // If the key already exists, update the associated value
             if (node.data.key.equals(key)) {
                 node.data.value = value;
-                return;
+                return; // Exit the method as the value has been updated
             }
         }
+
+        // If the key does not exist in the bucket, add a new entry at the beginning of the list
         bucket.addFirst(new Entry(key, value));
     }
+
 
     /**
      * Retrieves the value associated with the given key.
